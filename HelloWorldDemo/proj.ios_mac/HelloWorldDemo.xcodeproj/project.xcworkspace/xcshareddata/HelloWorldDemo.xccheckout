@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7EB72B93-9DAC-4EC1-830E-9C7749EED4EA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HelloWorldDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C65B3035F6772BDAFBC5DB89759C10E308209C91</key>
+		<string>https://github.com/wind3110991/coco2dx-FlyingGame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HelloWorldDemo/proj.ios_mac/HelloWorldDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C65B3035F6772BDAFBC5DB89759C10E308209C91</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wind3110991/coco2dx-FlyingGame.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C65B3035F6772BDAFBC5DB89759C10E308209C91</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C65B3035F6772BDAFBC5DB89759C10E308209C91</string>
+			<key>IDESourceControlWCCName</key>
+			<string>coco2dx-FlyingGame</string>
+		</dict>
+	</array>
+</dict>
+</plist>
