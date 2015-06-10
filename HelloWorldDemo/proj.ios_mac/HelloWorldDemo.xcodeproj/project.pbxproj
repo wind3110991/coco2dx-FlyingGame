@@ -61,6 +61,7 @@
 		15A17BE21B25F23F0073E563 /* air7.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A17BC41B25F23F0073E563 /* air7.png */; };
 		15A17BE31B25F23F0073E563 /* air8.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A17BC51B25F23F0073E563 /* air8.png */; };
 		15A17BE41B25F23F0073E563 /* air9.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A17BC61B25F23F0073E563 /* air9.png */; };
+		15A4C4381B281C8100C68B19 /* GameMonsterObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A4C4361B281C8100C68B19 /* GameMonsterObj.cpp */; };
 		15C2D5121B26BDCA004E45E1 /* GameBackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C2D5101B26BDCA004E45E1 /* GameBackgroundLayer.cpp */; };
 		15C2D5151B26BE77004E45E1 /* GameAirplaneObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C2D5131B26BE77004E45E1 /* GameAirplaneObj.cpp */; };
 		15C2D5181B26C1B3004E45E1 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C2D5161B26C1B3004E45E1 /* GameScene.cpp */; };
@@ -213,6 +214,8 @@
 		15A17BC41B25F23F0073E563 /* air7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air7.png; sourceTree = "<group>"; };
 		15A17BC51B25F23F0073E563 /* air8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air8.png; sourceTree = "<group>"; };
 		15A17BC61B25F23F0073E563 /* air9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air9.png; sourceTree = "<group>"; };
+		15A4C4361B281C8100C68B19 /* GameMonsterObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMonsterObj.cpp; sourceTree = "<group>"; };
+		15A4C4371B281C8100C68B19 /* GameMonsterObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMonsterObj.h; sourceTree = "<group>"; };
 		15C2D5101B26BDCA004E45E1 /* GameBackgroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBackgroundLayer.cpp; sourceTree = "<group>"; };
 		15C2D5111B26BDCA004E45E1 /* GameBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBackgroundLayer.h; sourceTree = "<group>"; };
 		15C2D5131B26BE77004E45E1 /* GameAirplaneObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameAirplaneObj.cpp; sourceTree = "<group>"; };
@@ -489,6 +492,8 @@
 				15C2D5141B26BE77004E45E1 /* GameAirplaneObj.h */,
 				15C2D5161B26C1B3004E45E1 /* GameScene.cpp */,
 				15C2D5171B26C1B3004E45E1 /* GameScene.h */,
+				15A4C4361B281C8100C68B19 /* GameMonsterObj.cpp */,
+				15A4C4371B281C8100C68B19 /* GameMonsterObj.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -755,6 +760,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C2D5151B26BE77004E45E1 /* GameAirplaneObj.cpp in Sources */,
+				15A4C4381B281C8100C68B19 /* GameMonsterObj.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,

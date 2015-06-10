@@ -22,9 +22,21 @@ GameScene::~GameScene(void)
 //创建一个带物理引擎的场景
 Scene *GameScene::createScene()
 {
-    auto scene = Scene::create();
+    auto scene = Scene::createWithPhysics();
+    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    
     auto layer = GameScene::create();
+    layer->setPhyWorld(scene->getPhysicsWorld()); //工厂模式方法实例化物理世界
+    
     scene->addChild(layer);
+    
+//为场景创建物理边界
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    auto body = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
+    auto edgeNode = Node::create();
+    edgeNode->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
+    edgeNode->setPhysicsBody(body);
+    scene->addChild(edgeNode);
     
     return scene;
 }
@@ -42,34 +54,12 @@ bool GameScene::init()
     this->gamebackgroundLayer->setPosition(Vec2::ZERO);
     this->addChild(gamebackgroundLayer);
     
-    
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-/*测试飞机end*/
-    
-    auto sprite = Sprite::create("air1.png");//创建精灵－－飞机
-    sprite->setScale(0.5);//飞机缩放为原大小一半
-    
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    this->addChild(sprite, 0);
-   
-    //帧动画播放
-    auto animation = Animation::create();
-    
-    for( int i=1;i<49;i++)
-    {
-        char szName[100] = {0};
-        sprintf(szName, "air%d.png", i);
-        animation->addSpriteFrameWithFile(szName);
-    }
-    
-    animation->setDelayPerUnit(2.8f / 59.0f);
-    animation->setRestoreOriginalFrame(true);
-    
-    sprite->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
-    
-/*测试飞机end*/
+//实例化飞机
+    GameAirplaneObj* airplane1 = new GameAirplaneObj();
+    addChild(airplane1,0);
     
     return true;
 }
@@ -85,4 +75,18 @@ void GameScene::onEnterTransitionDidFinish()
 void GameScene::update(float delta)
 {
     this->gamebackgroundLayer->scrollBackground();
+}
+
+void GameScene::setover()
+{
+    Menu* pMenu = (Menu *)this->getChildByTag(25);
+    pMenu->setVisible(true);
+    pMenu->setEnabled(true);
+    gameover->setVisible(true);
+    gameover->setScale(0);
+    pMenu->setScale(0);
+    pMenu->runAction(CCScaleTo::create(0.5,1));
+    gameover->runAction(CCScaleTo::create(0.5,0.5));
+    isover = true;
+
 }
