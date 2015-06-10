@@ -12,8 +12,10 @@
 #include <stdio.h>
 #include "cocos2d.h"
 
+using namespace cocos2d;
+
 // 游戏背景层
-class GameBackgroundLayer : public cocos2d::Layer
+class GameBackgroundLayer : public Layer
 {
 public:
     GameBackgroundLayer(void);
@@ -31,8 +33,8 @@ private:
     
 private:
     // 背景地图
-    cocos2d::Sprite *background_1;
-    cocos2d::Sprite *background_2;
+    Sprite *background_1;
+    Sprite *background_2;
     
     // 沿X轴滚动速度
     double speedX;

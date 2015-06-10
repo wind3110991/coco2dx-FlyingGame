@@ -15,13 +15,16 @@
 #include "GameBackgroundLayer.h"
 #include "GameAirplaneObj.h"
 
+using namespace cocos2d;
+
 class GameScene:public cocos2d::Layer
 {
 public:
     GameScene(void);
     ~GameScene(void);
     
-    static cocos2d::Scene *createScene();
+    static Scene *createScene();
+    void setPhyWorld(PhysicsWorld* world);
     virtual bool init() override;
     CREATE_FUNC(GameScene);
     

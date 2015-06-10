@@ -29,6 +29,8 @@
 		1575686B1B2681F9008C3704 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1575686A1B2681F9008C3704 /* background.jpg */; };
 		1575686D1B268C3E008C3704 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1575686C1B268C3E008C3704 /* background1.jpg */; };
 		1575686F1B268C4D008C3704 /* background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1575686E1B268C4D008C3704 /* background2.jpg */; };
+		158D9B211B27D1190009CEEE /* gamebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 158D9B201B27D1190009CEEE /* gamebackground.png */; };
+		158D9B231B27D23B0009CEEE /* gamebackground1.png in Resources */ = {isa = PBXBuildFile; fileRef = 158D9B221B27D23B0009CEEE /* gamebackground1.png */; };
 		15A17BC71B25F23F0073E563 /* air1.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A17BA91B25F23F0073E563 /* air1.png */; };
 		15A17BC81B25F23F0073E563 /* air10.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A17BAA1B25F23F0073E563 /* air10.png */; };
 		15A17BC91B25F23F0073E563 /* air11.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A17BAB1B25F23F0073E563 /* air11.png */; };
@@ -179,6 +181,8 @@
 		1575686A1B2681F9008C3704 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		1575686C1B268C3E008C3704 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
 		1575686E1B268C4D008C3704 /* background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpg; sourceTree = "<group>"; };
+		158D9B201B27D1190009CEEE /* gamebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamebackground.png; sourceTree = "<group>"; };
+		158D9B221B27D23B0009CEEE /* gamebackground1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamebackground1.png; sourceTree = "<group>"; };
 		15A17BA91B25F23F0073E563 /* air1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air1.png; sourceTree = "<group>"; };
 		15A17BAA1B25F23F0073E563 /* air10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air10.png; sourceTree = "<group>"; };
 		15A17BAB1B25F23F0073E563 /* air11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air11.png; sourceTree = "<group>"; };
@@ -332,6 +336,18 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		158D9B1F1B27D0FC0009CEEE /* gamebackground */ = {
+			isa = PBXGroup;
+			children = (
+				158D9B221B27D23B0009CEEE /* gamebackground1.png */,
+				158D9B201B27D1190009CEEE /* gamebackground.png */,
+				1575686E1B268C4D008C3704 /* background2.jpg */,
+				1575686C1B268C3E008C3704 /* background1.jpg */,
+				1575686A1B2681F9008C3704 /* background.jpg */,
+			);
+			name = gamebackground;
+			sourceTree = "<group>";
+		};
 		15A17BA81B25F23F0073E563 /* air */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,9 +462,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1575686E1B268C4D008C3704 /* background2.jpg */,
-				1575686C1B268C3E008C3704 /* background1.jpg */,
-				1575686A1B2681F9008C3704 /* background.jpg */,
+				158D9B1F1B27D0FC0009CEEE /* gamebackground */,
 				15A17BA81B25F23F0073E563 /* air */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
@@ -659,11 +673,13 @@
 			files = (
 				46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */,
 				15A17BE31B25F23F0073E563 /* air8.png in Resources */,
+				158D9B231B27D23B0009CEEE /* gamebackground1.png in Resources */,
 				157568591B2677E1008C3704 /* air32.png in Resources */,
 				15A17BD01B25F23F0073E563 /* air18.png in Resources */,
 				1575686D1B268C3E008C3704 /* background1.jpg in Resources */,
 				15A17BC81B25F23F0073E563 /* air10.png in Resources */,
 				15A17BCF1B25F23F0073E563 /* air17.png in Resources */,
+				158D9B211B27D1190009CEEE /* gamebackground.png in Resources */,
 				15A17BCB1B25F23F0073E563 /* air13.png in Resources */,
 				15A17BD71B25F23F0073E563 /* air24.png in Resources */,
 				1575685A1B2677E1008C3704 /* air33.png in Resources */,

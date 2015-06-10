@@ -19,6 +19,7 @@ GameScene::~GameScene(void)
 {
 }
 
+//创建一个带物理引擎的场景
 Scene *GameScene::createScene()
 {
     auto scene = Scene::create();

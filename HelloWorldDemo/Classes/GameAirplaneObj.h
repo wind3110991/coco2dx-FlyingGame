@@ -10,5 +10,6 @@
 #define __HelloWorldDemo__GameAirplaneObj__
 
 #include <stdio.h>
+using namespace cocos2d;
 
 #endif /* defined(__HelloWorldDemo__GameAirplaneObj__) */

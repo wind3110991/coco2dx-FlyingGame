@@ -35,14 +35,15 @@ void GameBackgroundLayer::initBackground()
 //    cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile("gameArts-hd.plist", "gameArts-hd.png");
     
    //  把两张背景地图加载进来
-    this->background_1 = cocos2d::CCSprite::create("background.png");
-    this->background_1->setAnchorPoint(cocos2d::Vec2(0, 0));
+    this->background_1 = CCSprite::create("gamebackground1.png");
+    this->background_1->setAnchorPoint(Vec2(0, 0));
     this->background_1->setPosition(0, 0);
     this->addChild(this->background_1);
     
-    this->background_2 = cocos2d::CCSprite::create("background.png");
-    this->background_2->setAnchorPoint(cocos2d::Vec2(0, 0));
-    this->background_2->setPosition(0, this->background_1->getPositionY() + this->background_1->getContentSize().height);
+    this->background_2 = CCSprite::create("gamebackground1.png");
+    this->background_2->setAnchorPoint(Vec2(0, 0));
+   // this->background_2->setPosition(0, this->background_1->getPositionY() + this->background_1->getContentSize().height);
+    this->background_2->setPosition(this->background_1->getPositionX() + this->background_1->getContentSize().width , 0);
     this->addChild(this->background_2);
     
      //设置初始滚动速度
@@ -63,12 +64,12 @@ void GameBackgroundLayer::scrollBackground()
     this->background_1->setPositionX(nextPos_1);
     this->background_2->setPositionX(nextPos_2);
     
-    // 当一张地图移除屏幕边界的时候，重新放置到另一张地图的上面
+    // 当一张地图移除屏幕边界的时候，重新放置到另一张地图的右边
     if(fabs(nextPos_1) == this->background_1->getContentSize().width) //当nextPos_1为末端
     {
-        this->background_1->setPositionY(this->background_2->getPositionY() + this->background_2->getContentSize().height);
+        this->background_1->setPositionX(this->background_2->getPositionX() + this->background_2->getContentSize().width);
         
-        cocos2d::Sprite *t = this->background_1;
+        Sprite *t = this->background_1;
         this->background_1 = this->background_2;
         this->background_2 = t;
     }
