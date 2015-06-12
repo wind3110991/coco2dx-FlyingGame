@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155A95F11B2B3F5700668E68 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95EF1B2B3F5700668E68 /* MenuScene.cpp */; };
+		155A95F41B2B406B00668E68 /* GameNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95F21B2B406B00668E68 /* GameNumber.cpp */; };
+		155A95FA1B2B442300668E68 /* GameStatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95F81B2B442300668E68 /* GameStatusLayer.cpp */; };
+		155A95FD1B2B494A00668E68 /* GameOptionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95FB1B2B494A00668E68 /* GameOptionLayer.cpp */; };
+		155A96001B2B4AC200668E68 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95FE1B2B4AC200668E68 /* GameLayer.cpp */; };
 		157568461B267410008C3704 /* air42.png in Resources */ = {isa = PBXBuildFile; fileRef = 157568341B267410008C3704 /* air42.png */; };
 		157568471B267410008C3704 /* air43.png in Resources */ = {isa = PBXBuildFile; fileRef = 157568351B267410008C3704 /* air43.png */; };
 		157568481B267410008C3704 /* air44.png in Resources */ = {isa = PBXBuildFile; fileRef = 157568361B267410008C3704 /* air44.png */; };
@@ -160,6 +165,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		155A95EF1B2B3F5700668E68 /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
+		155A95F01B2B3F5700668E68 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		155A95F21B2B406B00668E68 /* GameNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameNumber.cpp; sourceTree = "<group>"; };
+		155A95F31B2B406B00668E68 /* GameNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameNumber.h; sourceTree = "<group>"; };
+		155A95F81B2B442300668E68 /* GameStatusLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStatusLayer.cpp; sourceTree = "<group>"; };
+		155A95F91B2B442300668E68 /* GameStatusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatusLayer.h; sourceTree = "<group>"; };
+		155A95FB1B2B494A00668E68 /* GameOptionLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOptionLayer.cpp; sourceTree = "<group>"; };
+		155A95FC1B2B494A00668E68 /* GameOptionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOptionLayer.h; sourceTree = "<group>"; };
+		155A95FE1B2B4AC200668E68 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
+		155A95FF1B2B4AC200668E68 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		157568341B267410008C3704 /* air42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air42.png; sourceTree = "<group>"; };
 		157568351B267410008C3704 /* air43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air43.png; sourceTree = "<group>"; };
 		157568361B267410008C3704 /* air44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air44.png; sourceTree = "<group>"; };
@@ -494,6 +509,16 @@
 				15C2D5171B26C1B3004E45E1 /* GameScene.h */,
 				15A4C4361B281C8100C68B19 /* GameMonsterObj.cpp */,
 				15A4C4371B281C8100C68B19 /* GameMonsterObj.h */,
+				155A95EF1B2B3F5700668E68 /* MenuScene.cpp */,
+				155A95F01B2B3F5700668E68 /* MenuScene.h */,
+				155A95F21B2B406B00668E68 /* GameNumber.cpp */,
+				155A95F31B2B406B00668E68 /* GameNumber.h */,
+				155A95F81B2B442300668E68 /* GameStatusLayer.cpp */,
+				155A95F91B2B442300668E68 /* GameStatusLayer.h */,
+				155A95FB1B2B494A00668E68 /* GameOptionLayer.cpp */,
+				155A95FC1B2B494A00668E68 /* GameOptionLayer.h */,
+				155A95FE1B2B4AC200668E68 /* GameLayer.cpp */,
+				155A95FF1B2B4AC200668E68 /* GameLayer.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -760,7 +785,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C2D5151B26BE77004E45E1 /* GameAirplaneObj.cpp in Sources */,
+				155A95F11B2B3F5700668E68 /* MenuScene.cpp in Sources */,
+				155A95FA1B2B442300668E68 /* GameStatusLayer.cpp in Sources */,
+				155A95FD1B2B494A00668E68 /* GameOptionLayer.cpp in Sources */,
 				15A4C4381B281C8100C68B19 /* GameMonsterObj.cpp in Sources */,
+				155A95F41B2B406B00668E68 /* GameNumber.cpp in Sources */,
+				155A96001B2B4AC200668E68 /* GameLayer.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,

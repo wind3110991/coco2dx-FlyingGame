@@ -13,14 +13,17 @@
 #include "cocos2d.h"
 #include "sys/socket.h"
 #include "GameBackgroundLayer.h"
-#include "GameAirplaneObj.h"
+#include "GameOptionLayer.h"
+#include "GameLayer.h"
+#include "GameStatusLayer.h"
 
 using namespace cocos2d;
 using namespace std;
 
-const int AIRPLANE_RADIUS = 30;
+//const int AIRPLANE_RADIUS = 30;
 
-class GameAirplaneObj;
+//游戏状态
+
 class GameScene:public Scene
 {
 public:
@@ -28,13 +31,10 @@ public:
     ~GameScene(void);
    
     static Scene *createScene();
-    
-    void setover();
-    void setPhyWorld(PhysicsWorld* world){m_world = world;}
     virtual bool init() override;
     CREATE_FUNC(GameScene);
 
-    bool isover;
+//    bool isover;
 private:
     // 定时器，每一帧调用
     virtual void update(float delta) override;
@@ -43,13 +43,9 @@ private:
     virtual void onEnterTransitionDidFinish() override;
     
 private:
-    GameAirplaneObj *airplane;
-    
-    PhysicsWorld *m_world;
     // 游戏背景
     GameBackgroundLayer *gamebackgroundLayer;
-    
-    Sprite* gameover;
+
 };
 
 

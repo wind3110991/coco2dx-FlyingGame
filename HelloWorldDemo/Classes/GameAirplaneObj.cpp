@@ -43,6 +43,7 @@ bool GameAirplaneObj::createAirplane()
 {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
     auto m_sprite = Sprite::create("air1.png");//创建精灵－－飞机
     m_sprite->setScale(0.5);//飞机缩放为原大小一半
     m_sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
@@ -80,15 +81,38 @@ Animation* GameAirplaneObj::createAnimation()
 
 void GameAirplaneObj::idle()
 {
-    if (setState(ACTION_STATE_IDLE)) {
+    if (checkState(ACTION_STATE_IDLE)) {
       //  this->runAction(idleAction);
        // this->runAction(swingAction);
     }
 }
 
-bool GameAirplaneObj::setState(ActionState state)
+//飞行器蹦起
+void GameAirplaneObj::bounce()
 {
+    if(checkState(ACTION_STATE_BOUNCE)) {
+        this->stopAction(bounceAction);
+        this->getPhysicsBody()->setGravityEnable(true);
+    }
+}
 
+//飞行器无敌加速
+void GameAirplaneObj::speedup()
+{
+}
+
+//飞行器爆炸（结束）
+void GameAirplaneObj::explode()
+{
+    if(checkState(ACTION_STATE_EXPLODE)) {
+        this->stopAllActions();
+    }
+}
+
+bool GameAirplaneObj::checkState(ActionState state)
+{
+    currentStatus = state;
+    return true;
 }
 
 void GameAirplaneObj::onExit()
@@ -96,31 +120,3 @@ void GameAirplaneObj::onExit()
     Node::onExit();
 }
 
-void GameAirplaneObj::bounce()
-{
-    
-    //setState(1);
-}
-
-//bool containsTouchLocation(Touch* touch)
-//{
-//    return rect().containsPoint(convertTouchToNodeSpaceAR(touch));
-//}
-bool GameAirplaneObj::onTouchBegan(Touch* touch, Event* event)
-{
-//    if(((GameScene *)this->getParent())->isover)
-//        return false;
-//    //设置运动状态
-//    setState(0);
-    return true;
-}
-
-void GameAirplaneObj::onTouchMoved(Touch* touch, Event* event)
-{
-
-}
-
-void GameAirplaneObj::onTouchEnded(Touch* touch, Event* event)
-{
-
-}

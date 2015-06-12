@@ -20,8 +20,6 @@ GameScene::~GameScene(void)
 }
 
 
-
-
 //创建一个带物理引擎的场景
 Scene *GameScene::createScene()
 {
@@ -30,7 +28,7 @@ Scene *GameScene::createScene()
     scene->getPhysicsWorld()->setGravity(Vec2(0, -900));
     
     auto layer = GameScene::create();
-    layer->setPhyWorld(scene->getPhysicsWorld()); //工厂模式方法实例化物理世界
+    //layer->setPhyWorld(scene->getPhysicsWorld()); //工厂模式方法实例化物理世界
     scene->addChild(layer,0);
 
     
@@ -51,62 +49,43 @@ bool GameScene::init()
     {
         return false;
     }
-
     
     // 加载背景地图
     this->gamebackgroundLayer = GameBackgroundLayer::create();
     this->gamebackgroundLayer->setAnchorPoint(Vec2::ZERO);
     this->gamebackgroundLayer->setPosition(Vec2::ZERO);
     this->addChild(gamebackgroundLayer);
+
+    //创建状态层
+//    auto statusLayer = GameStatusLayer::create();
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-//实例化飞机
-//    GameAirplaneObj* airplane1 = new GameAirplaneObj();
-    
-    this->airplane = GameAirplaneObj::getInstance();
-    this->airplane->createAirplane();
-    PhysicsBody *body = PhysicsBody::create();
-    body->addShape(PhysicsShapeCircle::create(AIRPLANE_RADIUS));
-    body->setDynamic(true);
-    body->setLinearDamping(0.0f);
-    body->setGravityEnable(true);
-    airplane->setPhysicsBody(body);
-    addChild(airplane,0);
-    
-    auto listener = EventListenerAcceleration::create([](Acceleration *a, Event *)
-{
-    log("x:%f,y:%f,z:%f", a->x, a->y, a->z);
-});
-    
-    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    //创建游戏层
+    auto gameLayer = GameLayer::create();
+    if(gameLayer) {
+        gameLayer->setPhyWorld(this->getPhysicsWorld());
+ //       gameLayer->setDelegator(statusLayer);
+        this->addChild(gameLayer,0);
+    }
+    //创建控制层
+    auto optionLayer = GameOptionLayer::create();
+    if(optionLayer) {
+        optionLayer->setDelegator(gameLayer);
+        this->addChild(optionLayer,0);
+    }
     return true;
 }
 
+
 void GameScene::onEnterTransitionDidFinish()
 {
-    Node::onEnterTransitionDidFinish();
-    
+    Node::onEnterTransitionDidFinish();    
     // 场景加载完毕才滚动背景
     this->scheduleUpdate();
 }
+
 
 void GameScene::update(float delta)
 {
     this->gamebackgroundLayer->scrollBackground();
 }
 
-void GameScene::setover()
-{
-    Menu* pMenu = (Menu *)this->getChildByTag(25);
-    pMenu->setVisible(true);
-    pMenu->setEnabled(true);
-    gameover->setVisible(true);
-    gameover->setScale(0);
-    pMenu->setScale(0);
-    pMenu->runAction(CCScaleTo::create(0.5,1));
-    gameover->runAction(CCScaleTo::create(0.5,0.5));
-    isover = true;
-
-}

@@ -37,19 +37,13 @@ public:
     void speedup();
     void explode();
     
-    //void addNewSpriteAtPosition(Point p);
-    
-    bool containsTouchLocation(Touch* touch);
-    bool onTouchBegan(Touch* touch, Event* event);
-    void onTouchMoved(Touch* touch, Event* event);
-    void onTouchEnded(Touch* touch, Event* event);
     
 //    virtual void touchDelegateRetain();
 //    virtual void touchDelegateRelease();
 protected:
     static cocos2d::Animation* createAnimation();
 private:
-    bool setState(ActionState state); //设置当前飞机状态
+    bool checkState(ActionState state); //设置当前飞机状态
 private:
     static GameAirplaneObj* shareAirplaneObj;
     unsigned int isFirstTime;
