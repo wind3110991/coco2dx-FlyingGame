@@ -24,6 +24,7 @@ public:
     bool _visable;
     void set_visable(bool var);
     bool get_visable();
+private:
 };
 
 #endif /* defined(__HelloWorldDemo__GameMonsterObj__) */
