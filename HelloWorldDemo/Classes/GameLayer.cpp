@@ -38,12 +38,13 @@ bool GameLayer::init()
     body->setDynamic(true);
     body->setLinearDamping(0.0f);
     body->setGravityEnable(true);
+    airplane->setPosition(Vec2(visibleSize.width/3 + origin.x, visibleSize.height/3 + origin.y));
     airplane->setPhysicsBody(body);
     airplane->idle();
     addChild(airplane,0);
     
  //   auto contactListener = EventListenerPhysicsContact::create();
- //   contactListener->onContactBegin = CC_CALLBACK_2(GameLayer::onContactBegin, this);
+//    contactListener->onContactBegin = CC_CALLBACK_2(GameLayer::onContactBegin, this);
  //   this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
     
     return true;
@@ -66,14 +67,7 @@ void GameLayer::onTouch()
         this->airplane->getPhysicsBody()->setVelocity(Vect(0, 260));
     }
 }
-//
-//void GameLayer::onEnterTransitionDidFinish()
-//{
-//    Node::onEnterTransitionDidFinish();
-//    
-//    // 场景加载完毕才滚动背景
-//    this->scheduleUpdate();
-//}
+
 
 bool GameLayer::onContactBegin(EventCustom *event, const PhysicsContact& contact) {
     this->gameOver();
@@ -99,5 +93,3 @@ void GameLayer::setover()
     isover = true;
     
 }
-
-

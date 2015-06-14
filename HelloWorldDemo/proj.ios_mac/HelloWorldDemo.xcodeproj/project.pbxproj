@@ -12,6 +12,8 @@
 		155A95FA1B2B442300668E68 /* GameStatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95F81B2B442300668E68 /* GameStatusLayer.cpp */; };
 		155A95FD1B2B494A00668E68 /* GameOptionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95FB1B2B494A00668E68 /* GameOptionLayer.cpp */; };
 		155A96001B2B4AC200668E68 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95FE1B2B4AC200668E68 /* GameLayer.cpp */; };
+		155B9CC91B2CB16C00A90892 /* monster1.png in Resources */ = {isa = PBXBuildFile; fileRef = 155B9CC81B2CB16C00A90892 /* monster1.png */; };
+		15736F741B2CA09700717F10 /* monster.png in Resources */ = {isa = PBXBuildFile; fileRef = 15736F731B2CA09700717F10 /* monster.png */; };
 		157568461B267410008C3704 /* air42.png in Resources */ = {isa = PBXBuildFile; fileRef = 157568341B267410008C3704 /* air42.png */; };
 		157568471B267410008C3704 /* air43.png in Resources */ = {isa = PBXBuildFile; fileRef = 157568351B267410008C3704 /* air43.png */; };
 		157568481B267410008C3704 /* air44.png in Resources */ = {isa = PBXBuildFile; fileRef = 157568361B267410008C3704 /* air44.png */; };
@@ -71,6 +73,11 @@
 		15C2D5151B26BE77004E45E1 /* GameAirplaneObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C2D5131B26BE77004E45E1 /* GameAirplaneObj.cpp */; };
 		15C2D5181B26C1B3004E45E1 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C2D5161B26C1B3004E45E1 /* GameScene.cpp */; };
 		15C2D51B1B2746A8004E45E1 /* gameArt.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15C2D51A1B2746A8004E45E1 /* gameArt.plist */; };
+		15DB44511B2D35CD0019261A /* monster2.png in Resources */ = {isa = PBXBuildFile; fileRef = 15DB44501B2D35CD0019261A /* monster2.png */; };
+		15DB44571B2D38730019261A /* birdmonster.png in Resources */ = {isa = PBXBuildFile; fileRef = 15DB44561B2D38730019261A /* birdmonster.png */; };
+		15DB445C1B2D39440019261A /* birdmonster1.png in Resources */ = {isa = PBXBuildFile; fileRef = 15DB44591B2D39440019261A /* birdmonster1.png */; };
+		15DB445D1B2D39440019261A /* birdmonster2.png in Resources */ = {isa = PBXBuildFile; fileRef = 15DB445A1B2D39440019261A /* birdmonster2.png */; };
+		15DB445E1B2D39440019261A /* birdmonster3.png in Resources */ = {isa = PBXBuildFile; fileRef = 15DB445B1B2D39440019261A /* birdmonster3.png */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -175,6 +182,8 @@
 		155A95FC1B2B494A00668E68 /* GameOptionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOptionLayer.h; sourceTree = "<group>"; };
 		155A95FE1B2B4AC200668E68 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
 		155A95FF1B2B4AC200668E68 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		155B9CC81B2CB16C00A90892 /* monster1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster1.png; sourceTree = "<group>"; };
+		15736F731B2CA09700717F10 /* monster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster.png; sourceTree = "<group>"; };
 		157568341B267410008C3704 /* air42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air42.png; sourceTree = "<group>"; };
 		157568351B267410008C3704 /* air43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air43.png; sourceTree = "<group>"; };
 		157568361B267410008C3704 /* air44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air44.png; sourceTree = "<group>"; };
@@ -238,6 +247,11 @@
 		15C2D5161B26C1B3004E45E1 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		15C2D5171B26C1B3004E45E1 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		15C2D51A1B2746A8004E45E1 /* gameArt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gameArt.plist; sourceTree = "<group>"; };
+		15DB44501B2D35CD0019261A /* monster2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster2.png; sourceTree = "<group>"; };
+		15DB44561B2D38730019261A /* birdmonster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birdmonster.png; sourceTree = "<group>"; };
+		15DB44591B2D39440019261A /* birdmonster1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birdmonster1.png; sourceTree = "<group>"; };
+		15DB445A1B2D39440019261A /* birdmonster2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birdmonster2.png; sourceTree = "<group>"; };
+		15DB445B1B2D39440019261A /* birdmonster3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birdmonster3.png; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -421,6 +435,17 @@
 			path = air;
 			sourceTree = "<group>";
 		};
+		15DB44581B2D392D0019261A /* birdmonster */ = {
+			isa = PBXGroup;
+			children = (
+				15DB44591B2D39440019261A /* birdmonster1.png */,
+				15DB445A1B2D39440019261A /* birdmonster2.png */,
+				15DB445B1B2D39440019261A /* birdmonster3.png */,
+				15DB44561B2D38730019261A /* birdmonster.png */,
+			);
+			name = birdmonster;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +505,10 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				15DB44581B2D392D0019261A /* birdmonster */,
+				15DB44501B2D35CD0019261A /* monster2.png */,
+				155B9CC81B2CB16C00A90892 /* monster1.png */,
+				15736F731B2CA09700717F10 /* monster.png */,
 				158D9B1F1B27D0FC0009CEEE /* gamebackground */,
 				15A17BA81B25F23F0073E563 /* air */,
 				521A8EA819F11F5000D177D7 /* fonts */,
@@ -704,10 +733,12 @@
 				46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */,
 				15A17BE31B25F23F0073E563 /* air8.png in Resources */,
 				158D9B231B27D23B0009CEEE /* gamebackground1.png in Resources */,
+				15DB44571B2D38730019261A /* birdmonster.png in Resources */,
 				157568591B2677E1008C3704 /* air32.png in Resources */,
 				15A17BD01B25F23F0073E563 /* air18.png in Resources */,
 				1575686D1B268C3E008C3704 /* background1.jpg in Resources */,
 				15A17BC81B25F23F0073E563 /* air10.png in Resources */,
+				155B9CC91B2CB16C00A90892 /* monster1.png in Resources */,
 				15A17BCF1B25F23F0073E563 /* air17.png in Resources */,
 				158D9B211B27D1190009CEEE /* gamebackground.png in Resources */,
 				15A17BCB1B25F23F0073E563 /* air13.png in Resources */,
@@ -718,6 +749,7 @@
 				15A17BDF1B25F23F0073E563 /* air4.png in Resources */,
 				15A17BCD1B25F23F0073E563 /* air15.png in Resources */,
 				15A17BD61B25F23F0073E563 /* air23.png in Resources */,
+				15DB445C1B2D39440019261A /* birdmonster1.png in Resources */,
 				15A17BC91B25F23F0073E563 /* air11.png in Resources */,
 				157568461B267410008C3704 /* air42.png in Resources */,
 				1575685D1B2677E1008C3704 /* air36.png in Resources */,
@@ -725,6 +757,7 @@
 				15A17BE01B25F23F0073E563 /* air5.png in Resources */,
 				15A17BDE1B25F23F0073E563 /* air30.png in Resources */,
 				15A17BCC1B25F23F0073E563 /* air14.png in Resources */,
+				15DB445E1B2D39440019261A /* birdmonster3.png in Resources */,
 				1575684C1B267410008C3704 /* air48.png in Resources */,
 				15A17BDD1B25F23F0073E563 /* air3.png in Resources */,
 				1575686F1B268C4D008C3704 /* background2.jpg in Resources */,
@@ -739,6 +772,7 @@
 				15A17BD21B25F23F0073E563 /* air2.png in Resources */,
 				157568641B267C6F008C3704 /* background.png in Resources */,
 				15A17BE11B25F23F0073E563 /* air6.png in Resources */,
+				15736F741B2CA09700717F10 /* monster.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				15A17BDA1B25F23F0073E563 /* air27.png in Resources */,
 				1575685E1B2677E1008C3704 /* air37.png in Resources */,
@@ -751,11 +785,13 @@
 				15A17BDB1B25F23F0073E563 /* air28.png in Resources */,
 				15A17BD11B25F23F0073E563 /* air19.png in Resources */,
 				15A17BE21B25F23F0073E563 /* air7.png in Resources */,
+				15DB445D1B2D39440019261A /* birdmonster2.png in Resources */,
 				157568581B2677E1008C3704 /* air31.png in Resources */,
 				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				157568601B2677E1008C3704 /* air39.png in Resources */,
 				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				157568621B2677E1008C3704 /* air41.png in Resources */,
+				15DB44511B2D35CD0019261A /* monster2.png in Resources */,
 				1575684A1B267410008C3704 /* air46.png in Resources */,
 				1575685B1B2677E1008C3704 /* air34.png in Resources */,
 				15A17BCE1B25F23F0073E563 /* air16.png in Resources */,

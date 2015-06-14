@@ -26,10 +26,10 @@ Scene *GameScene::createScene()
     auto scene = Scene::createWithPhysics();
     scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     scene->getPhysicsWorld()->setGravity(Vec2(0, -900));
-    
+//    
     auto layer = GameScene::create();
     //layer->setPhyWorld(scene->getPhysicsWorld()); //工厂模式方法实例化物理世界
-    scene->addChild(layer,0);
+    scene->addChild(layer);
 
     
 //为场景创建物理边界
@@ -49,6 +49,7 @@ bool GameScene::init()
     {
         return false;
     }
+
     
     // 加载背景地图
     this->gamebackgroundLayer = GameBackgroundLayer::create();
@@ -64,13 +65,13 @@ bool GameScene::init()
     if(gameLayer) {
         gameLayer->setPhyWorld(this->getPhysicsWorld());
  //       gameLayer->setDelegator(statusLayer);
-        this->addChild(gameLayer,0);
+        this->addChild(gameLayer);
     }
     //创建控制层
     auto optionLayer = GameOptionLayer::create();
     if(optionLayer) {
         optionLayer->setDelegator(gameLayer);
-        this->addChild(optionLayer,0);
+        this->addChild(optionLayer);
     }
     return true;
 }

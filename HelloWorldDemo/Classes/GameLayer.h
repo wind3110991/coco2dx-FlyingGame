@@ -56,13 +56,14 @@ public:
     /**
      * This layer need physical engine work
      */
-    void setPhyWorld(PhysicsWorld* world){m_world = world;}
+    void setPhyWorld(PhysicsWorld* world){this->m_world = world;}
     bool isover;
     
 private:    
     bool onContactBegin(EventCustom *event, const PhysicsContact& contact);
     
     void gameOver();
+    
 private:
     GameAirplaneObj *airplane;
     

@@ -35,7 +35,8 @@ private:
     // 背景地图
     Sprite *background_1;
     Sprite *background_2;
-    
+    Sprite *testMonster1;
+    Sprite *testMonster2;
     // 沿X轴滚动速度
     double speedX;
 };

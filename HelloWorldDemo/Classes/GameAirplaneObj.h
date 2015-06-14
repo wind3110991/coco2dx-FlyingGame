@@ -30,13 +30,11 @@ public:
     bool createAirplane();
     virtual void onExit();
     Sprite* m_sprite;
-    //void initGameAirplane(); //初始化飞行器
     
     void idle();
     void bounce();
     void speedup();
     void explode();
-    
     
 //    virtual void touchDelegateRetain();
 //    virtual void touchDelegateRelease();
@@ -52,9 +50,6 @@ private:
     Action* bounceAction;
     ActionState currentStatus;
     
-    Texture2D *hurt;
-    Texture2D *jump;
-    short state;
     bool iscontrol;
 };
 #endif /* defined(__HelloWorldDemo__GameAirplaneObj__) */
