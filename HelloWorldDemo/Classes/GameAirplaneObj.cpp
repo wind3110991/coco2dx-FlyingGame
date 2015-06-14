@@ -43,8 +43,8 @@ bool GameAirplaneObj::createAirplane()
 {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    auto m_sprite = Sprite::create("air1.png");//创建精灵－－飞机
-    m_sprite->setScale(0.7);//飞机缩放为原大小一半
+    auto m_sprite = Sprite::create("airp20.png");//创建精灵－－飞机
+    m_sprite->setScale(0.8);//飞机缩放为原大小一半
 //    m_sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     
     //帧动画播放
@@ -69,7 +69,7 @@ Animation* GameAirplaneObj::createAnimation()
     for( int i=20;i<49;i++)
     {
         char szName[100] = {0};
-        sprintf(szName, "air%d.png", i);
+        sprintf(szName, "airp%d.png", i);
         animation->addSpriteFrameWithFile(szName);
     }
     

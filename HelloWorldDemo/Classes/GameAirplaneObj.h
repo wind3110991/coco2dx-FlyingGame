@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "cocos2d.h"
 
+
 using namespace cocos2d;
 
 typedef enum{
@@ -35,9 +36,7 @@ public:
     void bounce();
     void speedup();
     void explode();
-    
-//    virtual void touchDelegateRetain();
-//    virtual void touchDelegateRelease();
+
 protected:
     static cocos2d::Animation* createAnimation();
 private:
@@ -50,6 +49,5 @@ private:
     Action* bounceAction;
     ActionState currentStatus;
     
-    bool iscontrol;
 };
 #endif /* defined(__HelloWorldDemo__GameAirplaneObj__) */

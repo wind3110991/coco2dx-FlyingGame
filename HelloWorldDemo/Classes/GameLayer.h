@@ -10,12 +10,18 @@
 #define __HelloWorldDemo__GameLayer__
 
 #include <stdio.h>
+#include <iostream>
 #include "cocos2d.h"
 #include "GameBackgroundLayer.h"
 #include "GameAirplaneObj.h"
 #include "GameOptionLayer.h"
+#include <vector>
+#include <string>
+#include <sstream>
 
-const int AIRPLANE_RADIUS = 30;
+using namespace std;
+
+const int AIRPLANE_RADIUS = 38;
 
 typedef enum _game_status {
     GAME_STATUS_READY = 1,
@@ -57,22 +63,36 @@ public:
      * This layer need physical engine work
      */
     void setPhyWorld(PhysicsWorld* world){this->m_world = world;}
+
     bool isover;
     
+    void update(float delta) override;
+    
+    void onEnter();
 private:    
-    bool onContactBegin(EventCustom *event, const PhysicsContact& contact);
+    bool onContactBegin(const PhysicsContact& contact);
+    
+    void gameStart();
     
     void gameOver();
     
+    bool checkHit();
+    
 private:
+    Label *scoreLabel;
+    
+    int score = 0;
+    
     GameAirplaneObj *airplane;
     
+   // GameNumber *gamescore;
+    
     PhysicsWorld *m_world;
-    // 游戏背景
     
     GameStatus gameStatus;
     
     Sprite* gameover;
+    
 };
 
 #endif /* defined(__HelloWorldDemo__GameLayer__) */

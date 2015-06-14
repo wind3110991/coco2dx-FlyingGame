@@ -47,27 +47,29 @@ void GameBackgroundLayer::initBackground()
     
 //测试-------------------------------------------------------------------------------------------------------------
     PhysicsBody *body_1 = PhysicsBody::create();
-    body_1->addShape(PhysicsShapeCircle::create(20));
+    body_1->addShape(PhysicsShapeCircle::create(BIRMONSTER_RADIUS));
     body_1->setDynamic(true);
     body_1->setLinearDamping(0.0f);
     body_1->setGravityEnable(false);
+    body_1->setContactTestBitmask(0xFFFFFFFF);
     
     PhysicsBody *body_2 = PhysicsBody::create();
-    body_2->addShape(PhysicsShapeCircle::create(20));
+    body_2->addShape(PhysicsShapeCircle::create(BIRMONSTER_RADIUS));
     body_2->setDynamic(true);
     body_2->setLinearDamping(0.0f);
     body_2->setGravityEnable(false);
-
-    this->testMonster1 = CCSprite::create("birdmonster.png");
+    body_2->setContactTestBitmask(0xFFFFFFFF);
+    
+    this->testMonster1 = CCSprite::create("aircraft.png");
     this->testMonster1->setScale(0.8);
-    this->testMonster1->setPosition(visibleSize.width/2, visibleSize.height/2 - rand()%11*10);
-//    testMonster1->setPhysicsBody(body_1);
+    this->testMonster1->setPosition(visibleSize.width/2, visibleSize.height/2 - rand()%11*20);
+    testMonster1->setPhysicsBody(body_1);
     this->addChild(this->testMonster1);
     
-    this->testMonster2 = CCSprite::create("birdmonster.png");
+    this->testMonster2 = CCSprite::create("aircraft.png");
     this->testMonster2->setScale(0.8);
-    this->testMonster2->setPosition(visibleSize.width/2 + this->background_1->getContentSize().width, visibleSize.height/2 + rand()%11*10);
-//    testMonster2->setPhysicsBody(body_2);
+    this->testMonster2->setPosition(visibleSize.width/2 + this->background_1->getContentSize().width, visibleSize.height/2 + rand()%11*20);
+    testMonster2->setPhysicsBody(body_2);
     this->addChild(this->testMonster2);
     
     ActionInterval *forwardBy1 = CCMoveBy::create(2, Point(visibleSize.width/2, visibleSize.height/2 - rand()%11*10));
@@ -75,9 +77,10 @@ void GameBackgroundLayer::initBackground()
     Action *action1 = CCRepeat::create((CCSequence::create(forwardBy1, backBy1, NULL)), 4);
     testMonster1->runAction(action1);
     
-    ActionInterval *forwardBy2 = CCMoveBy::create(2, Point(visibleSize.width/2 + this->background_1->getContentSize().width, visibleSize.height/2 - rand()%11*10));
+    ActionInterval *forwardBy2 = CCMoveBy::create(2, Point(visibleSize.width/2 , visibleSize.height/2 - rand()%11*10));
     ActionInterval *backBy2 = forwardBy2->reverse();
     Action *action2 = CCRepeat::create((CCSequence::create(forwardBy2, backBy2, NULL)), 4);
+    
     testMonster2->runAction(action2);
 //测试-------------------------------------------------------------------------------------------------------------
     
@@ -129,4 +132,20 @@ void GameBackgroundLayer::scrollBackground()
         this->testMonster2 = s;
 //测试-------------------------------------------------------------------------------------------------------------
     }
+}
+
+Animation* GameBackgroundLayer::createAnimation()
+{
+    auto animation = Animation::create();
+    
+    for( int i=1;i<26;i++)
+    {
+        char szName[100] = {0};
+        sprintf(szName, "birdmonster%d.png", i);
+        animation->addSpriteFrameWithFile(szName);
+    }
+    
+    animation->setDelayPerUnit(2.8f / 59.0f);
+    animation->setRestoreOriginalFrame(true);
+    return animation;
 }

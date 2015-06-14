@@ -14,19 +14,15 @@
 
 using namespace cocos2d;
 
-const int MONSTER_DISTANCE = 100;
-
-const int MONSTER_POSITION_Y = 300;
-
+//抽象类monster
 class GameMonsterObj:public Node
 {
 public:
     GameMonsterObj(void);
     virtual ~GameMonsterObj(void);
     
-    bool createMonster();
-    int getRandomHeight();
-    int getRandomDistance();
+    virtual bool createMonster() const = 0;
+
 private:
     
 };

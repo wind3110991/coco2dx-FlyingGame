@@ -33,13 +33,13 @@ Scene *GameScene::createScene()
 
     
 //为场景创建物理边界
-//    Size visibleSize = Director::getInstance()->getVisibleSize();
-//    auto body = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
-//    auto edgeNode = Node::create();
-//    edgeNode->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
-//    edgeNode->setPhysicsBody(body);
-//    gamescene->addChild(edgeNode,0);
-//
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    auto body = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
+    auto edgeNode = Node::create();
+    edgeNode->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
+    edgeNode->setPhysicsBody(body);
+    scene->addChild(edgeNode);
+
     return scene;
 }
 
