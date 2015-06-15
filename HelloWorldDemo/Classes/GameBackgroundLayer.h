@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "cocos2d.h"
+#include "BirdMonsterObj.h"
 
 using namespace cocos2d;
 
@@ -41,6 +42,9 @@ private:
     Sprite *background_2;
     Sprite *testMonster1;
     Sprite *testMonster2;
+    
+    BirdMonsterObj* birdmonster1;
+    BirdMonsterObj* birdmonster2;
     // 沿X轴滚动速度
     Action* idleAction1;
     Action* idleAction2;

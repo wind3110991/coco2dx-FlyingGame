@@ -20,7 +20,12 @@
 using namespace cocos2d;
 using namespace std;
 
-//const int AIRPLANE_RADIUS = 30;
+struct _segment{
+    Point p1;
+    Point p2;
+    Point p3;
+    Point p4;
+};
 
 //游戏状态
 
@@ -32,9 +37,8 @@ public:
    
     static Scene *createScene();
     virtual bool init() override;
+    void restart();
     CREATE_FUNC(GameScene);
-
-//    bool isover;
 private:
     // 定时器，每一帧调用
     virtual void update(float delta) override;

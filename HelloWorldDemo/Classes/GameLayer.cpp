@@ -7,6 +7,7 @@
 //
 
 #include "GameLayer.h"
+#include "stdlib.h"
 
 GameLayer::GameLayer()
 {
@@ -23,6 +24,7 @@ bool GameLayer::init()
     {
         return false;
     }
+    
     gameStatus = GAME_STATUS_READY;
     this->score = 0;//重置分数
     
@@ -45,21 +47,22 @@ bool GameLayer::init()
     //实例化飞机
     this->airplane = GameAirplaneObj::getInstance();
     this->airplane->createAirplane();
+    this->airplane->setScale(0.8);
+    this->airplane->setPosition(Vec2(visibleSize.width/4 + origin.x, visibleSize.height/2 + origin.y));
+    
     PhysicsBody *body = PhysicsBody::create();
     body->addShape(PhysicsShapeCircle::create(AIRPLANE_RADIUS));
     body->setDynamic(true);
     body->setLinearDamping(0.0f);
     body->setGravityEnable(true);
-    airplane->setPosition(Vec2(visibleSize.width/3 + origin.x, visibleSize.height/3 + origin.y));
+    
     airplane->setPhysicsBody(body);
     body->setContactTestBitmask(0xFFFFFFFF);
     airplane->idle();
+    airplane->removeFromParent();
     addChild(airplane,0);
     this->scheduleUpdate();
-//    auto dispatcher = Director::getInstance()->getEventDispatcher();
-//    auto contactListener = EventListenerPhysicsContact::create();
-//    contactListener->onContactBegin = CC_CALLBACK_1(GameLayer::onContactBegin, this);
-//    dispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
+
     return true;
 }
 
@@ -82,6 +85,7 @@ void GameLayer::onTouch()
         return;
     }
     //加音效
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bounce.mp3");
     if(this->gameStatus == GAME_STATUS_READY) {
         //this->delegator->onGameStart();
         //this->gameStart();
@@ -95,6 +99,7 @@ void GameLayer::onTouch()
 
 
 bool GameLayer::onContactBegin(const PhysicsContact& contact) {
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("crash.wav");
     this->gameOver();
     return true;
 }
@@ -121,6 +126,20 @@ void GameLayer::gameOver()
     }
     this->gameStatus = GAME_STATUS_OVER;
     this->airplane->stopAllActions();
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("error.wav");
+    delegator->onGameEnd(this->score, this->bestScore);
+}
+
+void GameLayer::updateScore()
+{
+    this->score += 1;
+    
+    ostringstream  ostr;
+    ostr << this->score;
+    string str(ostr.str());
+    
+    this->scoreLabel->setString(str);
+    this->scoreLabel->setVisible(true);
 }
 
 void GameLayer::update(float delta)
@@ -130,14 +149,7 @@ void GameLayer::update(float delta)
     
     if(gameStatus == GAME_STATUS_START)
     {
-        this->score += 1;
-        
-        ostringstream  ostr;
-        ostr << this->score;
-        string str(ostr.str());
-        
-        this->scoreLabel->setString(str);
-        this->scoreLabel->setVisible(true);
+        this->updateScore();
     }
     
     //地面碰撞检测
@@ -155,16 +167,5 @@ void GameLayer::update(float delta)
     }
 }
 
-void GameLayer::setover()
-{
-    Menu* pMenu = (Menu *)this->getChildByTag(25);
-    pMenu->setVisible(true);
-    pMenu->setEnabled(true);
-    gameover->setVisible(true);
-    gameover->setScale(0);
-    pMenu->setScale(0);
-    pMenu->runAction(CCScaleTo::create(0.5,1));
-    gameover->runAction(CCScaleTo::create(0.5,0.5));
-    isover = true;
-    
-}
+
+

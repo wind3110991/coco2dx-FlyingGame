@@ -15,6 +15,7 @@
 #include "GameBackgroundLayer.h"
 #include "GameAirplaneObj.h"
 #include "GameOptionLayer.h"
+#include "SimpleAudioEngine.h"
 #include <vector>
 #include <string>
 #include <sstream>
@@ -34,12 +35,12 @@ public:
     /**
      * When the game start, this method will be called
      */
-    virtual void onGameStart(void) = 0;
+    //virtual void onGameStart(void) = 0;
     
     /**
      * During paying, after the score changed, this method will be called
      */
-    virtual void onGamePlaying(int score) = 0;
+    //virtual void onGamePlaying(int score) = 0;
     
     /**
      * When game is over, this method will be called
@@ -63,12 +64,14 @@ public:
      * This layer need physical engine work
      */
     void setPhyWorld(PhysicsWorld* world){this->m_world = world;}
-
-    bool isover;
     
     void update(float delta) override;
     
+    void updateScore();
+    
     void onEnter();
+    
+    
 private:    
     bool onContactBegin(const PhysicsContact& contact);
     
@@ -83,9 +86,9 @@ private:
     
     int score = 0;
     
-    GameAirplaneObj *airplane;
+    int bestScore = 0;
     
-   // GameNumber *gamescore;
+    GameAirplaneObj *airplane;
     
     PhysicsWorld *m_world;
     

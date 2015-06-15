@@ -41,12 +41,11 @@ GameAirplaneObj* GameAirplaneObj::getInstance()
 //创建飞船&与其有关的动画
 bool GameAirplaneObj::createAirplane()
 {
+    
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    auto m_sprite = Sprite::create("airp20.png");//创建精灵－－飞机
+
+    m_sprite = Sprite::create("airp20.png");//创建精灵－－飞机
     m_sprite->setScale(0.8);//飞机缩放为原大小一半
-//    m_sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    
     //帧动画播放
     Animation* animation = this->createAnimation();
     Animate* animate = Animate::create(animation);
@@ -57,7 +56,7 @@ bool GameAirplaneObj::createAirplane()
     ActionInterval *upBack= up->reverse();
     this->bounceAction = RepeatForever::create(Sequence::create(up, upBack, NULL));
     
-    m_sprite->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
+   // m_sprite->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
     addChild(m_sprite);
     return true;
 }
@@ -81,7 +80,7 @@ Animation* GameAirplaneObj::createAnimation()
 void GameAirplaneObj::idle()
 {
     if (checkState(ACTION_STATE_IDLE)) {
-      //  this->runAction(idleAction);
+        //this->runAction(idleAction);
        // this->runAction(swingAction);
     }
 }

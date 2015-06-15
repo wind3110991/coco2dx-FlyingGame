@@ -13,7 +13,10 @@
 #include "cocos2d.h"
 #include <cstdlib>
 #include "GameLayer.h"
+#include "GameScene.h"
 #include "string.h"
+#include "GameOptionLayer.h"
+
 using namespace cocos2d;
 using namespace std;
 
@@ -27,13 +30,13 @@ public:
     
     virtual bool init();
     
-    CREATE_FUNC(GameStatusLayer);
+    //void onGameStart();
     
-    void onGameStart();
-    
-    void onGamePlaying(int score);
+    //void onGamePlaying(int score);
     
     void onGameEnd(int curScore, int bestScore);
+    
+    CREATE_FUNC(GameStatusLayer);
 private:
     void showReadyStatus();
     
@@ -63,7 +66,7 @@ private:
     
     void blinkAction();
     
-    void menuRestartCallback(Object *sender);
+    void menuRestartCallback(Ref *sender);
     
     Sprite* scoreSprite;
     
@@ -81,9 +84,9 @@ private:
     
     bool isNewRecord;
     
-    Point originPoint;
+    Size visibleSize = Director::getInstance()->getVisibleSize();
     
-    Size visibleSize;
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
 };
 
 #endif /* defined(__HelloWorldDemo__GameStatusLayer__) */

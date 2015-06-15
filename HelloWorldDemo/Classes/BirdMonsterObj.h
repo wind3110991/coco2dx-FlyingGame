@@ -12,16 +12,23 @@
 #include <stdio.h>
 #include "GameMonsterObj.h"
 #include "cocos2d.h"
-#endif /* defined(__HelloWorldDemo__BirdMonsterObj__) */
 
-class BirdMonsterObj:public GameMonsterObj
+using namespace std;
+using namespace cocos2d;
+
+//继承抽象类monster衍生出猫头鹰敌人类
+class BirdMonsterObj:public Node
 {
 public:
     BirdMonsterObj(void);
     virtual ~BirdMonsterObj(void);
+    
     static BirdMonsterObj* getInstance();
     bool createMonster();
-    Sprite* m_sprite;
 protected:
     static cocos2d::Animation* createAnimation();
+private:
+    //static BirdMonsterObj* shareBireMonster;
+    Sprite* m_sprite;
 };
+#endif /* defined(__HelloWorldDemo__BirdMonsterObj__) */
