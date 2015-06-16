@@ -28,9 +28,6 @@ bool GameLayer::init()
     gameStatus = GAME_STATUS_READY;
     this->score = 0;//重置分数
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
     auto label = Label::createWithTTF("Your Score: ","fonts/Marker Felt.ttf", 24);
     label->setPosition(Vec2(origin.x + visibleSize.width/10,origin.y + visibleSize.height - label->getContentSize().height));
     this->addChild(label);
@@ -45,8 +42,12 @@ bool GameLayer::init()
     this->addChild(scoreLabel);
     
     //实例化飞机
+    
     this->airplane = GameAirplaneObj::getInstance();
     this->airplane->createAirplane();
+    //airplane::create("airp20.png");//创建精灵－－飞机
+    //m_sprite->setScale(0.8);//飞机缩放为原大小一半
+
     this->airplane->setScale(0.8);
     this->airplane->setPosition(Vec2(visibleSize.width/4 + origin.x, visibleSize.height/2 + origin.y));
     
@@ -55,12 +56,12 @@ bool GameLayer::init()
     body->setDynamic(true);
     body->setLinearDamping(0.0f);
     body->setGravityEnable(true);
-    
-    airplane->setPhysicsBody(body);
     body->setContactTestBitmask(0xFFFFFFFF);
-    airplane->idle();
-    airplane->removeFromParent();
-    addChild(airplane,0);
+    this->airplane->setPhysicsBody(body);
+    
+    this->airplane->idle();
+    this->airplane->removeFromParent();
+    this->addChild(airplane,0);
     this->scheduleUpdate();
 
     return true;
@@ -99,7 +100,6 @@ void GameLayer::onTouch()
 
 
 bool GameLayer::onContactBegin(const PhysicsContact& contact) {
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("crash.wav");
     this->gameOver();
     return true;
 }
@@ -127,6 +127,7 @@ void GameLayer::gameOver()
     this->gameStatus = GAME_STATUS_OVER;
     this->airplane->stopAllActions();
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("error.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("crash.wav");
     delegator->onGameEnd(this->score, this->bestScore);
 }
 
@@ -144,8 +145,7 @@ void GameLayer::updateScore()
 
 void GameLayer::update(float delta)
 {
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
     
     if(gameStatus == GAME_STATUS_START)
     {
@@ -153,19 +153,24 @@ void GameLayer::update(float delta)
     }
     
     //地面碰撞检测
-    else if(gameStatus == GAME_STATUS_START&&airplane->getPositionY() < 800)
+    if(gameStatus == GAME_STATUS_START&&airplane->getPositionY() < 50)
     {
-        this->gameStatus = GAME_STATUS_OVER;
-        this->airplane->stopAllActions();
+        this->gameOver();
+        insertGameOver();
     }
+    
     else if(gameStatus == GAME_STATUS_OVER)
     {
+        this->gameOver();
+        insertGameOver();
+    }
+}
+
+void GameLayer::insertGameOver()
+{
         auto label = Label::createWithTTF("Game Over!","fonts/Marker Felt.ttf", 40);
         label->setPosition(Vec2((origin.x + visibleSize.width)/2,(origin.y + visibleSize.height - label->getContentSize().height)/2));
         this->addChild(label);
         unscheduleUpdate();
-    }
 }
-
-
 

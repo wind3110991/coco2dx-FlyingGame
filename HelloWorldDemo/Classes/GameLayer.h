@@ -81,6 +81,8 @@ private:
     
     bool checkHit();
     
+    void insertGameOver();
+    
 private:
     Label *scoreLabel;
     
@@ -95,6 +97,9 @@ private:
     GameStatus gameStatus;
     
     Sprite* gameover;
+    
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
 };
 

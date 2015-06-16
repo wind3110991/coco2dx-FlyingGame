@@ -29,6 +29,7 @@ public:
     
     static GameAirplaneObj* getInstance();
     bool createAirplane();
+    virtual void onEnter();
     virtual void onExit();
     Sprite* m_sprite;
     

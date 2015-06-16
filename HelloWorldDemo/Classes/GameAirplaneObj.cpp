@@ -44,8 +44,6 @@ bool GameAirplaneObj::createAirplane()
     
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    m_sprite = Sprite::create("airp20.png");//创建精灵－－飞机
-    m_sprite->setScale(0.8);//飞机缩放为原大小一半
     //帧动画播放
     Animation* animation = this->createAnimation();
     Animate* animate = Animate::create(animation);
@@ -55,9 +53,8 @@ bool GameAirplaneObj::createAirplane()
     ActionInterval *up = CCMoveBy::create(0.4f,Point(0, 8));
     ActionInterval *upBack= up->reverse();
     this->bounceAction = RepeatForever::create(Sequence::create(up, upBack, NULL));
-    
-   // m_sprite->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
-    addChild(m_sprite);
+    // m_sprite->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
+
     return true;
 }
 
@@ -80,8 +77,7 @@ Animation* GameAirplaneObj::createAnimation()
 void GameAirplaneObj::idle()
 {
     if (checkState(ACTION_STATE_IDLE)) {
-        //this->runAction(idleAction);
-       // this->runAction(swingAction);
+
     }
 }
 
@@ -113,8 +109,20 @@ bool GameAirplaneObj::checkState(ActionState state)
     return true;
 }
 
+void GameAirplaneObj::onEnter()
+{
+    Node::onEnter();
+    m_sprite = Sprite::create("airp20.png");//创建精灵－－飞机
+    m_sprite->setScale(0.8);//飞机缩放为原大小一半
+    m_sprite->runAction(idleAction);
+
+    addChild(m_sprite);
+    
+}
+
 void GameAirplaneObj::onExit()
 {
     Node::onExit();
+    removeChild(m_sprite);
 }
 
