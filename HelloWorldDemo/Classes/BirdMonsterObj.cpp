@@ -37,14 +37,7 @@ void BirdMonsterObj::onExit()
 
 BirdMonsterObj* BirdMonsterObj::getInstance()
 {
-//    if(shareBireMonster == NULL){
-//        shareBireMonster = new BirdMonsterObj();
-//        if(!shareBireMonster->init()){
-//            delete(shareBireMonster);
-//            shareBireMonster = NULL;
-//            CCLOG("ERROR: Could not init shareBireMonster");
-//        }
-//    }
+
     BirdMonsterObj* bireMonster = new BirdMonsterObj();
     return bireMonster;
 }

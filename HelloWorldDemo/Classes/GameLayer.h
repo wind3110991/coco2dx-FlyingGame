@@ -27,6 +27,7 @@ const int AIRPLANE_RADIUS = 38;
 
 typedef enum _game_status {
     GAME_STATUS_READY = 1,
+    GAME_STATUS_PAUSE,
     GAME_STATUS_START,
     GAME_STATUS_OVER
 } GameStatus;
@@ -74,8 +75,9 @@ public:
     void onEnter();
     
     void onExit();
-private:    
+    
     bool onContactBegin(const PhysicsContact& contact);
+private:    
     
     void gameStart();
     
@@ -112,7 +114,8 @@ private:
     int bestScore = 0;
     
     GameAirplaneObj *airplane;
-    
+    PhysicsBody *airplane_body;
+
     PhysicsWorld *m_world;
     
     GameStatus gameStatus;

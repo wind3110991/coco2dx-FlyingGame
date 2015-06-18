@@ -60,7 +60,7 @@ void GameStatusLayer::fadeInRestartBtn(){
 
 void GameStatusLayer::menuRestartCallback(Ref* pSender){
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("stop.wav");
-    auto scene = GameScene::createScene();
+    auto scene = GameScene::create();
     TransitionScene *transition = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(transition);
 }

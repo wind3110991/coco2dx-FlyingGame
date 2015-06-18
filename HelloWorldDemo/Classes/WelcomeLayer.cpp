@@ -75,7 +75,7 @@ void WelcomeLayer::menuStartCallback(Ref *sender){
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("click.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("click.wav");
     
-    auto scene = GameScene::createScene();
+    auto scene = GameScene::create();
     TransitionScene *transition = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(transition);
 }

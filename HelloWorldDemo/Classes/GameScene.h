@@ -35,7 +35,7 @@ public:
     GameScene(void);
     ~GameScene(void);
    
-    static Scene *createScene();
+ //   static Scene *createScene();
     virtual bool init() override;
     void restart();
     CREATE_FUNC(GameScene);

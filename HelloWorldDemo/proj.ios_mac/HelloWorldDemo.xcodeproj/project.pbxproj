@@ -17,6 +17,7 @@
 		151217001B31650300E4322A /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216FF1B31650300E4322A /* back.png */; };
 		153FF5CD1B32AE9A00F3D1C5 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 153FF5CC1B32AE9A00F3D1C5 /* rocket.png */; };
 		153FF5D01B32C60300F3D1C5 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 153FF5CE1B32C60300F3D1C5 /* HelpLayer.cpp */; };
+		1545156C1B32F34600300DB4 /* RocketMonsterObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1545156A1B32F34600300DB4 /* RocketMonsterObj.cpp */; };
 		155A95F41B2B406B00668E68 /* GameNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95F21B2B406B00668E68 /* GameNumber.cpp */; };
 		155A95FA1B2B442300668E68 /* GameStatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95F81B2B442300668E68 /* GameStatusLayer.cpp */; };
 		155A95FD1B2B494A00668E68 /* GameOptionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95FB1B2B494A00668E68 /* GameOptionLayer.cpp */; };
@@ -264,6 +265,8 @@
 		153FF5CC1B32AE9A00F3D1C5 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 		153FF5CE1B32C60300F3D1C5 /* HelpLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpLayer.cpp; sourceTree = "<group>"; };
 		153FF5CF1B32C60300F3D1C5 /* HelpLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpLayer.h; sourceTree = "<group>"; };
+		1545156A1B32F34600300DB4 /* RocketMonsterObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RocketMonsterObj.cpp; sourceTree = "<group>"; };
+		1545156B1B32F34600300DB4 /* RocketMonsterObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RocketMonsterObj.h; sourceTree = "<group>"; };
 		155A95F21B2B406B00668E68 /* GameNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameNumber.cpp; sourceTree = "<group>"; };
 		155A95F31B2B406B00668E68 /* GameNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameNumber.h; sourceTree = "<group>"; };
 		155A95F81B2B442300668E68 /* GameStatusLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStatusLayer.cpp; sourceTree = "<group>"; };
@@ -711,6 +714,8 @@
 				15A4C4371B281C8100C68B19 /* GameMonsterObj.h */,
 				15B650971B2DE49200FAA2BA /* BirdMonsterObj.cpp */,
 				15B650981B2DE49200FAA2BA /* BirdMonsterObj.h */,
+				1545156A1B32F34600300DB4 /* RocketMonsterObj.cpp */,
+				1545156B1B32F34600300DB4 /* RocketMonsterObj.h */,
 			);
 			name = GameObj;
 			sourceTree = "<group>";
@@ -1228,6 +1233,7 @@
 				15C2D5181B26C1B3004E45E1 /* GameScene.cpp in Sources */,
 				153FF5D01B32C60300F3D1C5 /* HelpLayer.cpp in Sources */,
 				15C2D5121B26BDCA004E45E1 /* GameBackgroundLayer.cpp in Sources */,
+				1545156C1B32F34600300DB4 /* RocketMonsterObj.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

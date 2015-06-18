@@ -20,7 +20,7 @@ class GameMonsterObj:public Node
 public:
     GameMonsterObj(void);
     virtual ~GameMonsterObj(void);
-    
+
     virtual bool createMonster() const = 0;
     
 };

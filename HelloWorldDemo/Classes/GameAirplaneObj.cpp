@@ -45,7 +45,6 @@ void GameAirplaneObj::onEnter()
     this->m_sprite = Sprite::create("airp20.png");//创建精灵－－飞机
     this->m_sprite->runAction(idleAction);
     addChild(m_sprite);
-    
 }
 
 void GameAirplaneObj::onExit()
@@ -101,7 +100,7 @@ void GameAirplaneObj::bounce()
 {
     if(checkState(ACTION_STATE_BOUNCE)) {
         this->stopAction(bounceAction);
-        this->getPhysicsBody()->setGravityEnable(true);
+        //this->getPhysicsBody()->setGravityEnable(true);
     }
 }
 

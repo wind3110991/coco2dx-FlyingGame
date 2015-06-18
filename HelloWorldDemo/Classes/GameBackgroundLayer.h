@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "cocos2d.h"
 #include "BirdMonsterObj.h"
+#include "RocketMonsterObj.h"
 
 using namespace cocos2d;
 
@@ -37,6 +38,9 @@ protected:
 private:
     // 初始化背景地图
     void initBackground();
+    void birdMonsterFactory();
+    void aircraftMonsterFactory();
+    void rocketMonsterFactory();
 private:
     vector<Node *> m_birdMonsters;
     // 背景地图
@@ -49,10 +53,15 @@ private:
     BirdMonsterObj* birdmonster1;
     BirdMonsterObj* birdmonster2;
     BirdMonsterObj* birdmonster3;
+    BirdMonsterObj* birdmonster4;
+    
+    RocketMonsterObj* rocketmonster1;
     // 沿X轴滚动速度
     Action* idleAction1;
     Action* idleAction2;
     double speedX;
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
 };
 
 #endif /* defined(__HelloWorldDemo__GameBackgroundLayer__) */

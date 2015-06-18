@@ -55,14 +55,15 @@ bool GameLayer::init()
     this->airplane->setScale(0.8);
     this->airplane->setPosition(Vec2(visibleSize.width/4 + origin.x, visibleSize.height/2 + origin.y));
     
-    PhysicsBody *body = PhysicsBody::create();
-    body->addShape(PhysicsShapeCircle::create(AIRPLANE_RADIUS));
-    body->setDynamic(true);
-    body->setLinearDamping(0.0f);
-    body->setGravityEnable(true);
-    body->setCategoryBitmask(0x0000000F);
-    body->setContactTestBitmask(0x00000007);
-    this->airplane->setPhysicsBody(body);
+    airplane_body = PhysicsBody::create();
+    airplane_body->addShape(PhysicsShapeCircle::create(AIRPLANE_RADIUS));
+    airplane_body->setDynamic(true);
+    airplane_body->setLinearDamping(0.0f);
+    airplane_body->setGravityEnable(true);
+    airplane_body->setCategoryBitmask(0x0000000F);
+    airplane_body->setContactTestBitmask(0x00000007);
+    airplane_body->setMass(0);
+    this->airplane->setPhysicsBody(airplane_body);
     
     this->airplane->idle();
     this->airplane->removeFromParent();
@@ -111,7 +112,8 @@ void GameLayer::onEnter()
 
 void GameLayer::onExit()
 {
-    Node::onExit();
+    Layer::onExit();
+    //this->airplane_body->setDynamic(false); //防止其继续运动
 }
 
 void GameLayer::onTouch()
@@ -122,8 +124,6 @@ void GameLayer::onTouch()
     //加音效
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bounce.mp3");
     if(this->gameStatus == GAME_STATUS_READY) {
-        //this->delegator->onGameStart();
-        //this->gameStart();
         this->airplane->bounce();
         this->gameStatus = GAME_STATUS_START;
         //this->createMonster();
@@ -205,7 +205,7 @@ void GameLayer::update(float delta)
     else if(gameStatus == GAME_STATUS_OVER)
     {
         this->gameOver();
-        insertGameOver();
+        this->insertGameOver();
     }
 }
 
@@ -219,20 +219,32 @@ void GameLayer::insertGameOver()
 
 void GameLayer::menuPauseCallback(Ref* pSender)
 {
+    //为使得飞行器在暂停时间不受重力影响，取消物理世界的重力，并设速度为0
+    
+    airplane->getPhysicsBody()->setVelocity(Vec2(0,0));
+    Vect ungravity(0, 0);
+    m_world->setGravity(ungravity);
+    
     this->fadeInMenuResume();
-    removeChild(pauseNode);
+    this->removeChild(pauseNode);
+    this->gameStatus = GAME_STATUS_PAUSE;
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("stop.wav");
     Director::getInstance()->pause();
+
 }
 
 void GameLayer::menuResumeCallback(Ref* psender)
 {
+    //物理世界恢复正常
+    Vect gravity(0, -900);
+    m_world->setGravity(gravity);
+    
+    this->gameStatus = GAME_STATUS_START;
     Director::getInstance()->resume();
     removeChild(resumeNode);
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("stop.wav");
     this->initPauseMenu();
 }
-
 
 void GameLayer::fadeInMenuResume()
 {

@@ -20,18 +20,16 @@ GameScene::~GameScene(void)
 }
 
 
-//创建一个带物理引擎的场景
-Scene *GameScene::createScene()
+bool GameScene::init()
 {
-    auto scene = Scene::createWithPhysics();
-   // scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-    scene->getPhysicsWorld()->setGravity(Vec2(0, -900));
-//    
-    auto layer = GameScene::create();
-    //layer->setPhyWorld(scene->getPhysicsWorld()); //工厂模式方法实例化物理世界
-    scene->addChild(layer);
+    if(!Scene::initWithPhysics())
+    {
+        return false;
+    }
+    //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    this->getPhysicsWorld()->setGravity(Vect(0, -900));
 
-//为场景创建物理边界
+    //为场景创建物理边界
     Size visibleSize = Director::getInstance()->getVisibleSize();
     //auto body = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
     auto edgeNode1 = Node::create();
@@ -43,23 +41,13 @@ Scene *GameScene::createScene()
     
     auto linebody1 = PhysicsBody::createEdgeSegment(p1, p2);
     auto linebody2 = PhysicsBody::createEdgeSegment(p3, p4);
-    //edgeNode->setPosition(Point(visibleSize.width/2 ,visibleSize.height/2));
     edgeNode1->setPhysicsBody(linebody1);
     edgeNode2->setPhysicsBody(linebody2);
     
-    scene->addChild(edgeNode1);
-    scene->addChild(edgeNode2);
-
-    return scene;
-}
-
-bool GameScene::init()
-{
-    if(!Scene::initWithPhysics())
-    {
-        return false;
-    }
+    this->addChild(edgeNode1);
+    this->addChild(edgeNode2);
     
+
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("bgm.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("bgm.mp3");
     // 加载背景地图
@@ -90,6 +78,7 @@ bool GameScene::init()
     }
     return true;
 }
+
 
 void GameScene::updateSpeed(float dt)
 {
