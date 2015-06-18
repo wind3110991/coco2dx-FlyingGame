@@ -37,19 +37,20 @@ void GameStatusLayer::fadeInRestartBtn(){
     Node * tmpNode = Node::create();
     
     //create the restart menu;
-    Sprite* restartBtn = Sprite::create("UIRestart.png");
-    Sprite* restartBtnActive = Sprite::create("UIRestart.png");
+    Sprite* restartBtn = Sprite::create("restartBtn.png");
+    Sprite* restartBtnActive = Sprite::create("restartBtn.png");
     restartBtnActive->setPositionY(5);
     auto  menuItem = MenuItemSprite::create(restartBtn,restartBtnActive,NULL,CC_CALLBACK_1(GameStatusLayer::menuRestartCallback,this));
     auto menu = Menu::create(menuItem,NULL);
-    menu->setPosition(Point(origin.x + visibleSize.width/2 ,origin.y + visibleSize.height/3));
+    menu->setPosition(Point(origin.x + visibleSize.width/2 + 110 ,origin.y + visibleSize.height/2 + 30));
+    tmpNode->setScale(0.8);
     tmpNode->addChild(menu);
     addChild(tmpNode);
     
     //fade in the two buttons
-    auto fadeIn = FadeIn::create(0.1f);
+    auto fadeIn = FadeIn::create(3.0f);
     //tmpNode->stopAllActions();
-    //tmpNode->runAction(fadeIn);
+    tmpNode->runAction(fadeIn);
     
     CallFunc *actionDone = CallFunc::create(bind(&GameStatusLayer::refreshScoreCallback,this));
     auto sequence = Sequence::createWithTwoActions(fadeIn,actionDone);
@@ -58,7 +59,7 @@ void GameStatusLayer::fadeInRestartBtn(){
 }
 
 void GameStatusLayer::menuRestartCallback(Ref* pSender){
-    //SimpleAudioEngine::getInstance()->playEffect("sfx_swooshing.ogg");
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("stop.wav");
     auto scene = GameScene::createScene();
     TransitionScene *transition = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(transition);

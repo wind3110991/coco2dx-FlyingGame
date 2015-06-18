@@ -26,6 +26,8 @@ public:
     WelcomeLayer(void);
     ~WelcomeLayer(void);
     virtual bool init();
+    virtual void onEnter();
+    virtual void onExit();
     // implement the "static create()" method manually
     CREATE_FUNC(WelcomeLayer);
     
@@ -34,6 +36,34 @@ private:
      * The start button has been pressed will call this function
      */
     void menuStartCallback(Ref *sender);
+    void menuHelpCallback(Ref *sender);
+    void menuBackCallback(Ref *sender);
+    void initUI();
+    
+private:
+    Sprite *helpImg;
+    
+    Sprite *backButton;
+    Sprite *activeBackButton;
+    
+    Sprite *helpButton;
+    Sprite *activeHelpButton;
+    
+    Sprite *startButton;
+    Sprite *activeStartButton;
+    
+    Node *backNode;
+    Node *helpNode;
+    Node *startNode;
+    
+    
+
+    
+    //Menu *helpMenu;
+   // Menu *startMenu;
+   // Menu *backMenu;
+    Size visiableSize = Director::getInstance()->getVisibleSize();
+    Point origin = Director::getInstance()->getVisibleOrigin();
 };
 
 #endif /* defined(__HelloWorldDemo__WelcomeLayer__) */

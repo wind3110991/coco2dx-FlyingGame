@@ -14,9 +14,27 @@ BirdMonsterObj::BirdMonsterObj(void)
 
 BirdMonsterObj::~BirdMonsterObj(void)
 {
+    
+}
+
+void BirdMonsterObj::onEnter()
+{
+    Node::onEnter();
+    
+    m_sprite = Sprite::create("birdmonster1.png");
+    m_sprite->setScale(0.8);
+    Animation* animation = this->createAnimation();
+    m_sprite->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
+    addChild(m_sprite);
+}
+void BirdMonsterObj::onExit()
+{
+    Node::onExit();
+    removeChild(this->m_sprite);
 }
 
 //BirdMonsterObj* BirdMonsterObj::shareBireMonster = nullptr;
+
 BirdMonsterObj* BirdMonsterObj::getInstance()
 {
 //    if(shareBireMonster == NULL){
@@ -31,19 +49,8 @@ BirdMonsterObj* BirdMonsterObj::getInstance()
     return bireMonster;
 }
 
-bool BirdMonsterObj::createMonster()
+bool BirdMonsterObj::createMonster()const
 {
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    auto m_sprite = Sprite::create("birdmonster1.png");//创建精灵
-    m_sprite->setScale(0.8);
-    //m_sprite->setPosition(visibleSize.width/2 + rand()%11*20, visibleSize.height/2 + rand()%11*20);
-    
-    Animation* animation = this->createAnimation();
-    m_sprite->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
-    addChild(m_sprite);
-    
     return true;
 }
 

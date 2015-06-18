@@ -22,8 +22,6 @@ public:
     virtual ~GameMonsterObj(void);
     
     virtual bool createMonster() const = 0;
-
-private:
     
 };
 

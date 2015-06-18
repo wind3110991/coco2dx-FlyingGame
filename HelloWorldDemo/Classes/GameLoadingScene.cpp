@@ -22,7 +22,7 @@ bool LoadingScene::init() {
 
 void LoadingScene::onEnter(){
     // add background to current scene
-    Sprite *background = Sprite::create("gamebackgrounds.png");
+    Sprite *background = Sprite::create("LoadingPage1.png");
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
     background->setPosition(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2);
@@ -38,6 +38,7 @@ void LoadingScene::loadingCallBack(){
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("crash.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bounce.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("error.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("stop.wav");
     
     // After load all the things, change the scene to new one
     //auto scene = HelloWorld::createScene();

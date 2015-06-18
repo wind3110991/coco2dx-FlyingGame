@@ -45,7 +45,8 @@ private:
     
     // 此场景加载完毕后的操作
     virtual void onEnterTransitionDidFinish() override;
-    
+
+    void updateSpeed(float dt);
 private:
     // 游戏背景
     GameBackgroundLayer *gamebackgroundLayer;

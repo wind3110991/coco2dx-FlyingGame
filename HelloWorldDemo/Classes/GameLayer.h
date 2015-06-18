@@ -21,6 +21,7 @@
 #include <sstream>
 
 using namespace std;
+using namespace CocosDenshion;
 
 const int AIRPLANE_RADIUS = 38;
 
@@ -48,6 +49,7 @@ public:
     virtual void onGameEnd(int curSocre, int bestScore) = 0;
 };
 
+
 class GameLayer:public Layer,public OptionDelegate
 {
 public:
@@ -71,7 +73,7 @@ public:
     
     void onEnter();
     
-    
+    void onExit();
 private:    
     bool onContactBegin(const PhysicsContact& contact);
     
@@ -83,8 +85,27 @@ private:
     
     void insertGameOver();
     
+    void gameOverInformer(float dt);
+    
+    void fadeInMenuResume();
+    
+    void initPauseMenu();
+    
+    void menuPauseCallback(Ref* pSender);
+    
+    void menuResumeCallback(Ref* psender);
+    
 private:
+    Sprite* pauseBtn;
+    Sprite* pauseBtnActive;
+    
     Label *scoreLabel;
+    
+    Label *label1;
+    Label *label2;
+    
+    Node *resumeNode;
+    Node *pauseNode;
     
     int score = 0;
     

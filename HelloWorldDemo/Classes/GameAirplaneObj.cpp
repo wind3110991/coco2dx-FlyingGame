@@ -18,6 +18,7 @@ GameAirplaneObj::~GameAirplaneObj()
     
 }
 
+
 bool GameAirplaneObj::init()
 {
     this->isFirstTime = 3;
@@ -38,6 +39,21 @@ GameAirplaneObj* GameAirplaneObj::getInstance()
     return shareAirplaneObj;
 }
 
+void GameAirplaneObj::onEnter()
+{
+    Node::onEnter();
+    this->m_sprite = Sprite::create("airp20.png");//创建精灵－－飞机
+    this->m_sprite->runAction(idleAction);
+    addChild(m_sprite);
+    
+}
+
+void GameAirplaneObj::onExit()
+{
+    Node::onExit();
+    removeChild(this->m_sprite);
+}
+
 //创建飞船&与其有关的动画
 bool GameAirplaneObj::createAirplane()
 {
@@ -48,7 +64,6 @@ bool GameAirplaneObj::createAirplane()
     Animation* animation = this->createAnimation();
     Animate* animate = Animate::create(animation);
     this->idleAction = RepeatForever::create(animate);
-    
     //跳跃动作创建
     ActionInterval *up = CCMoveBy::create(0.4f,Point(0, 8));
     ActionInterval *upBack= up->reverse();
@@ -96,11 +111,10 @@ void GameAirplaneObj::speedup()
 }
 
 //飞行器爆炸（结束）
-void GameAirplaneObj::explode()
+void GameAirplaneObj::die()
 {
-    if(checkState(ACTION_STATE_EXPLODE)) {
-        this->stopAllActions();
-    }
+    this->dieAction = CCRotateTo::create(ROTATE_INTERVAL, ROTATE_DEGREE);
+    this->runAction(dieAction);
 }
 
 bool GameAirplaneObj::checkState(ActionState state)
@@ -109,20 +123,5 @@ bool GameAirplaneObj::checkState(ActionState state)
     return true;
 }
 
-void GameAirplaneObj::onEnter()
-{
-    Node::onEnter();
-    m_sprite = Sprite::create("airp20.png");//创建精灵－－飞机
-    m_sprite->setScale(0.8);//飞机缩放为原大小一半
-    m_sprite->runAction(idleAction);
 
-    addChild(m_sprite);
-    
-}
-
-void GameAirplaneObj::onExit()
-{
-    Node::onExit();
-    removeChild(m_sprite);
-}
 

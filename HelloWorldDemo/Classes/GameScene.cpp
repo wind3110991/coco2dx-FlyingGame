@@ -67,7 +67,6 @@ bool GameScene::init()
     this->gamebackgroundLayer->setAnchorPoint(Vec2::ZERO);
     this->gamebackgroundLayer->setPosition(Vec2::ZERO);
     this->addChild(gamebackgroundLayer);
-
     //创建状态层
     auto statusLayer = GameStatusLayer::create();
     
@@ -92,18 +91,24 @@ bool GameScene::init()
     return true;
 }
 
+void GameScene::updateSpeed(float dt)
+{
+    this->gamebackgroundLayer->scrollSpeedUp();
+}
+
 
 void GameScene::onEnterTransitionDidFinish()
 {
-    Node::onEnterTransitionDidFinish();    
+    Node::onEnterTransitionDidFinish();
     // 场景加载完毕才滚动背景
+    //this->schedule(schedule_selector(GameScene::updateSpeed), 2.0f, kRepeatForever, 1.0f);
     this->scheduleUpdate();
 }
-
 
 void GameScene::update(float delta)
 {
     this->gamebackgroundLayer->scrollBackground();
+    //this->gamebackgroundLayer->scrollSpeedUp();
 }
 
 void GameScene::restart() {

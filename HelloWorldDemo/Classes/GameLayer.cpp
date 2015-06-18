@@ -28,9 +28,9 @@ bool GameLayer::init()
     gameStatus = GAME_STATUS_READY;
     this->score = 0;//重置分数
     
-    auto label = Label::createWithTTF("Your Score: ","fonts/Marker Felt.ttf", 24);
-    label->setPosition(Vec2(origin.x + visibleSize.width/10,origin.y + visibleSize.height - label->getContentSize().height));
-    this->addChild(label);
+    this->label1 = Label::createWithTTF("Your Score: ","fonts/Marker Felt.ttf", 24);
+    this->label1->setPosition(Vec2(origin.x + visibleSize.width/10,origin.y + visibleSize.height - label1->getContentSize().height));
+    this->addChild(label1);
     
     ostringstream  ostr;
     ostr << this->score;
@@ -38,8 +38,12 @@ bool GameLayer::init()
     
     this->scoreLabel = Label::create(str,"fonts/Marker Felt.ttf", 24);
     this->scoreLabel->setVisible(true); //计分开始
-    scoreLabel->setPosition(Vec2(origin.x + visibleSize.width/6 + 20 ,origin.y + visibleSize.height - label->getContentSize().height));
+    scoreLabel->setPosition(Vec2(origin.x + visibleSize.width/6 + 20 ,origin.y + visibleSize.height - label1->getContentSize().height));
     this->addChild(scoreLabel);
+    
+    //加载暂停按钮
+    this->initPauseMenu();
+
     
     //实例化飞机
     
@@ -56,15 +60,41 @@ bool GameLayer::init()
     body->setDynamic(true);
     body->setLinearDamping(0.0f);
     body->setGravityEnable(true);
-    body->setContactTestBitmask(0xFFFFFFFF);
+    body->setCategoryBitmask(0x0000000F);
+    body->setContactTestBitmask(0x00000007);
     this->airplane->setPhysicsBody(body);
     
     this->airplane->idle();
     this->airplane->removeFromParent();
     this->addChild(airplane,0);
+    //this->schedule(schedule_selector(GameBackgroundLayer::scrollSpeedUp), 1.0f, kRepeatForever, 1.0f);
     this->scheduleUpdate();
 
     return true;
+}
+
+void GameLayer::initPauseMenu()
+{
+    //加载暂停按钮
+    pauseNode = Node::create();
+    Sprite* pauseBtn = Sprite::create("UIButtonPause.png");
+    Sprite* pauseBtnActive = Sprite::create("UIButtonPause.png");
+    pauseBtnActive->setPositionY(5);
+    auto  menuItem = MenuItemSprite::create(pauseBtn,pauseBtnActive,NULL,CC_CALLBACK_1(GameLayer::menuPauseCallback,this));
+    auto menu = Menu::create(menuItem,NULL);
+    menu->setPosition(Point(origin.x + visibleSize.width - 150 ,origin.y + visibleSize.height - 80));
+    menu->setScale(0.8);
+    pauseNode->addChild(menu);
+    addChild(pauseNode);
+    
+    //fade in the two buttons
+    auto fadeIn = FadeIn::create(3.0f);
+    //tmpNode->stopAllActions();
+    pauseNode->runAction(fadeIn);
+    
+    auto sequence = Sequence::create(fadeIn, this, NULL);
+    pauseNode->stopAllActions();
+    pauseNode->runAction(sequence);
 }
 
 void GameLayer::onEnter()
@@ -79,6 +109,10 @@ void GameLayer::onEnter()
     dispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 }
 
+void GameLayer::onExit()
+{
+    Node::onExit();
+}
 
 void GameLayer::onTouch()
 {
@@ -106,16 +140,14 @@ bool GameLayer::onContactBegin(const PhysicsContact& contact) {
 
 bool GameLayer::checkHit()
 {
-    if(this->airplane->getPositionX())  return true;
+    if(airplane->getPositionY() < 50)  return true;
     return false;
 }
 
 void GameLayer::gameStart()
 {
-    
     gameStatus = GAME_STATUS_READY;
     this->scheduleUpdate();//启动默认更新
-
 }
 
 //此处留有接口,处理游戏结束后的后勤工作
@@ -125,11 +157,18 @@ void GameLayer::gameOver()
         return;
     }
     this->gameStatus = GAME_STATUS_OVER;
-    this->airplane->stopAllActions();
+    this->airplane->die();
+    removeChild(pauseNode);
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("error.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("crash.wav");
+    scheduleOnce(schedule_selector(GameLayer::gameOverInformer), 2.0f);
+    }
+
+void GameLayer::gameOverInformer(float dt)
+{
     delegator->onGameEnd(this->score, this->bestScore);
 }
+
 
 void GameLayer::updateScore()
 {
@@ -143,17 +182,21 @@ void GameLayer::updateScore()
     this->scoreLabel->setVisible(true);
 }
 
+//void GameLayer::updateSpeed()
+//{
+//    GameBackgroundLayer::scrollSpeedUp();
+//    //
+//}
+
 void GameLayer::update(float delta)
 {
-
-    
     if(gameStatus == GAME_STATUS_START)
     {
         this->updateScore();
     }
     
     //地面碰撞检测
-    if(gameStatus == GAME_STATUS_START&&airplane->getPositionY() < 50)
+    if(gameStatus == GAME_STATUS_START&&checkHit())
     {
         this->gameOver();
         insertGameOver();
@@ -168,9 +211,47 @@ void GameLayer::update(float delta)
 
 void GameLayer::insertGameOver()
 {
-        auto label = Label::createWithTTF("Game Over!","fonts/Marker Felt.ttf", 40);
-        label->setPosition(Vec2((origin.x + visibleSize.width)/2,(origin.y + visibleSize.height - label->getContentSize().height)/2));
-        this->addChild(label);
-        unscheduleUpdate();
+    this->label2 = Label::createWithTTF("Game Over!","fonts/Marker Felt.ttf", 40);
+    label2->setPosition(Vec2((origin.x + visibleSize.width)/2,origin.y + visibleSize.height/2 + 80));
+    this->addChild(label2);
+    unscheduleUpdate();
 }
 
+void GameLayer::menuPauseCallback(Ref* pSender)
+{
+    this->fadeInMenuResume();
+    removeChild(pauseNode);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("stop.wav");
+    Director::getInstance()->pause();
+}
+
+void GameLayer::menuResumeCallback(Ref* psender)
+{
+    Director::getInstance()->resume();
+    removeChild(resumeNode);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("stop.wav");
+    this->initPauseMenu();
+}
+
+
+void GameLayer::fadeInMenuResume()
+{
+    this->resumeNode = Node::create();
+    Sprite* resumeBtn = Sprite::create("Btn_resume.png");
+    Sprite* resumeBtnActive = Sprite::create("Btn_resume.png");
+    resumeBtnActive->setPositionY(5);
+    auto menuItem = MenuItemSprite::create(resumeBtn,resumeBtnActive,NULL,CC_CALLBACK_1(GameLayer::menuResumeCallback,this));
+    auto menu = Menu::create(menuItem,NULL);
+    menu->setPosition(Point(origin.x + visibleSize.width/2 + 100,origin.y + visibleSize.height/2 + 100));
+    resumeNode->setScale(0.8);
+    resumeNode->addChild(menu);
+    addChild(resumeNode);
+    
+    //fade in the two buttons
+    auto fadeIn = FadeIn::create(3.0f);
+    //tmpNode->stopAllActions();
+    resumeNode->runAction(fadeIn);
+    auto sequence = Sequence::create(fadeIn,NULL);
+    resumeNode->stopAllActions();
+    resumeNode->runAction(sequence);
+}

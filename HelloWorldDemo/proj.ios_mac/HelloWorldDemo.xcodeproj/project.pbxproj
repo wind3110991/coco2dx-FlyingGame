@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151216F01B3145EC00E4322A /* LoadingPage.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216EF1B3145EC00E4322A /* LoadingPage.png */; };
+		151216F21B31463500E4322A /* LoadingPage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216F11B31463500E4322A /* LoadingPage1.png */; };
+		151216F41B31486300E4322A /* stop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 151216F31B31486300E4322A /* stop.wav */; };
+		151216F61B314B2B00E4322A /* UIResume.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216F51B314B2B00E4322A /* UIResume.png */; };
+		151216F81B314FC700E4322A /* Btn_resume.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216F71B314FC700E4322A /* Btn_resume.png */; };
+		151216FC1B3155D700E4322A /* restartBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216FB1B3155D700E4322A /* restartBtn.png */; };
+		151216FE1B3163EF00E4322A /* helpImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216FD1B3163EF00E4322A /* helpImg.png */; };
+		151217001B31650300E4322A /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216FF1B31650300E4322A /* back.png */; };
 		155A95F11B2B3F5700668E68 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95EF1B2B3F5700668E68 /* MenuScene.cpp */; };
 		155A95F41B2B406B00668E68 /* GameNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95F21B2B406B00668E68 /* GameNumber.cpp */; };
 		155A95FA1B2B442300668E68 /* GameStatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95F81B2B442300668E68 /* GameStatusLayer.cpp */; };
 		155A95FD1B2B494A00668E68 /* GameOptionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95FB1B2B494A00668E68 /* GameOptionLayer.cpp */; };
 		155A96001B2B4AC200668E68 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95FE1B2B4AC200668E68 /* GameLayer.cpp */; };
 		155B9CC91B2CB16C00A90892 /* monster1.png in Resources */ = {isa = PBXBuildFile; fileRef = 155B9CC81B2CB16C00A90892 /* monster1.png */; };
+		155F13141B312226009A0569 /* resume2.png in Resources */ = {isa = PBXBuildFile; fileRef = 155F13131B312226009A0569 /* resume2.png */; };
+		155F13161B3122D9009A0569 /* resume.png in Resources */ = {isa = PBXBuildFile; fileRef = 155F13151B3122D9009A0569 /* resume.png */; };
 		15736F741B2CA09700717F10 /* monster.png in Resources */ = {isa = PBXBuildFile; fileRef = 15736F731B2CA09700717F10 /* monster.png */; };
 		157568461B267410008C3704 /* air42.png in Resources */ = {isa = PBXBuildFile; fileRef = 157568341B267410008C3704 /* air42.png */; };
 		157568471B267410008C3704 /* air43.png in Resources */ = {isa = PBXBuildFile; fileRef = 157568351B267410008C3704 /* air43.png */; };
@@ -134,11 +144,15 @@
 		15B650A21B2DF72300FAA2BA /* crash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 15B650A11B2DF72300FAA2BA /* crash.wav */; };
 		15B650A41B2DF93100FAA2BA /* bounce.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15B650A31B2DF93100FAA2BA /* bounce.mp3 */; };
 		15B650A61B2DFABA00FAA2BA /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15B650A51B2DFABA00FAA2BA /* bgm.mp3 */; };
+		15B7BDE61B30FCAE00F56AA9 /* UIButtonPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B7BDE51B30FCAE00F56AA9 /* UIButtonPause.png */; };
 		15BF55751B2F23CC007E0422 /* GameLoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15BF55731B2F23CC007E0422 /* GameLoadingScene.cpp */; };
 		15C2D5121B26BDCA004E45E1 /* GameBackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C2D5101B26BDCA004E45E1 /* GameBackgroundLayer.cpp */; };
 		15C2D5151B26BE77004E45E1 /* GameAirplaneObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C2D5131B26BE77004E45E1 /* GameAirplaneObj.cpp */; };
 		15C2D5181B26C1B3004E45E1 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C2D5161B26C1B3004E45E1 /* GameScene.cpp */; };
 		15C2D51B1B2746A8004E45E1 /* gameArt.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15C2D51A1B2746A8004E45E1 /* gameArt.plist */; };
+		15CABA951B308BCF003F9D39 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CABA941B308BCF003F9D39 /* Loading.png */; };
+		15CABA971B308C22003F9D39 /* gamebackgrounds1.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CABA961B308C22003F9D39 /* gamebackgrounds1.png */; };
+		15CABA991B308E41003F9D39 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CABA981B308E41003F9D39 /* pause.png */; };
 		15DB44511B2D35CD0019261A /* monster2.png in Resources */ = {isa = PBXBuildFile; fileRef = 15DB44501B2D35CD0019261A /* monster2.png */; };
 		15FC66FC1B2ECB3700477EA9 /* UIbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FC66FB1B2ECB3700477EA9 /* UIbutton.png */; };
 		15FC66FE1B2ECB5100477EA9 /* gamebackgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FC66FD1B2ECB5100477EA9 /* gamebackgrounds.png */; };
@@ -238,6 +252,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		151216EF1B3145EC00E4322A /* LoadingPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingPage.png; sourceTree = "<group>"; };
+		151216F11B31463500E4322A /* LoadingPage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingPage1.png; sourceTree = "<group>"; };
+		151216F31B31486300E4322A /* stop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stop.wav; sourceTree = "<group>"; };
+		151216F51B314B2B00E4322A /* UIResume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIResume.png; sourceTree = "<group>"; };
+		151216F71B314FC700E4322A /* Btn_resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Btn_resume.png; sourceTree = "<group>"; };
+		151216FB1B3155D700E4322A /* restartBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartBtn.png; sourceTree = "<group>"; };
+		151216FD1B3163EF00E4322A /* helpImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpImg.png; sourceTree = "<group>"; };
+		151216FF1B31650300E4322A /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		155A95EF1B2B3F5700668E68 /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
 		155A95F01B2B3F5700668E68 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
 		155A95F21B2B406B00668E68 /* GameNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameNumber.cpp; sourceTree = "<group>"; };
@@ -249,6 +271,8 @@
 		155A95FE1B2B4AC200668E68 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
 		155A95FF1B2B4AC200668E68 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		155B9CC81B2CB16C00A90892 /* monster1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster1.png; sourceTree = "<group>"; };
+		155F13131B312226009A0569 /* resume2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resume2.png; sourceTree = "<group>"; };
+		155F13151B3122D9009A0569 /* resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resume.png; sourceTree = "<group>"; };
 		15736F731B2CA09700717F10 /* monster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster.png; sourceTree = "<group>"; };
 		157568341B267410008C3704 /* air42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air42.png; sourceTree = "<group>"; };
 		157568351B267410008C3704 /* air43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air43.png; sourceTree = "<group>"; };
@@ -374,6 +398,7 @@
 		15B650A11B2DF72300FAA2BA /* crash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = crash.wav; sourceTree = "<group>"; };
 		15B650A31B2DF93100FAA2BA /* bounce.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bounce.mp3; sourceTree = "<group>"; };
 		15B650A51B2DFABA00FAA2BA /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
+		15B7BDE51B30FCAE00F56AA9 /* UIButtonPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonPause.png; sourceTree = "<group>"; };
 		15BF55731B2F23CC007E0422 /* GameLoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoadingScene.cpp; sourceTree = "<group>"; };
 		15BF55741B2F23CC007E0422 /* GameLoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLoadingScene.h; sourceTree = "<group>"; };
 		15C2D5101B26BDCA004E45E1 /* GameBackgroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBackgroundLayer.cpp; sourceTree = "<group>"; };
@@ -383,6 +408,9 @@
 		15C2D5161B26C1B3004E45E1 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		15C2D5171B26C1B3004E45E1 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		15C2D51A1B2746A8004E45E1 /* gameArt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gameArt.plist; sourceTree = "<group>"; };
+		15CABA941B308BCF003F9D39 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
+		15CABA961B308C22003F9D39 /* gamebackgrounds1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamebackgrounds1.png; sourceTree = "<group>"; };
+		15CABA981B308E41003F9D39 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		15DB44501B2D35CD0019261A /* monster2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster2.png; sourceTree = "<group>"; };
 		15FC66FB1B2ECB3700477EA9 /* UIbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIbutton.png; sourceTree = "<group>"; };
 		15FC66FD1B2ECB5100477EA9 /* gamebackgrounds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamebackgrounds.png; sourceTree = "<group>"; };
@@ -507,6 +535,8 @@
 		158D9B1F1B27D0FC0009CEEE /* gamebackground */ = {
 			isa = PBXGroup;
 			children = (
+				15CABA961B308C22003F9D39 /* gamebackgrounds1.png */,
+				15CABA941B308BCF003F9D39 /* Loading.png */,
 				15FC66FD1B2ECB5100477EA9 /* gamebackgrounds.png */,
 				158D9B221B27D23B0009CEEE /* gamebackground1.png */,
 			);
@@ -571,6 +601,17 @@
 		15A3A3821B2EB93B00983527 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				151216FF1B31650300E4322A /* back.png */,
+				151216FD1B3163EF00E4322A /* helpImg.png */,
+				151216FB1B3155D700E4322A /* restartBtn.png */,
+				151216F71B314FC700E4322A /* Btn_resume.png */,
+				151216F51B314B2B00E4322A /* UIResume.png */,
+				151216F11B31463500E4322A /* LoadingPage1.png */,
+				151216EF1B3145EC00E4322A /* LoadingPage.png */,
+				155F13151B3122D9009A0569 /* resume.png */,
+				155F13131B312226009A0569 /* resume2.png */,
+				15B7BDE51B30FCAE00F56AA9 /* UIButtonPause.png */,
+				15CABA981B308E41003F9D39 /* pause.png */,
 				15FC66FB1B2ECB3700477EA9 /* UIbutton.png */,
 				15A3A3871B2EC68F00983527 /* button2.png */,
 				15FC66FF1B2ECF1000477EA9 /* UIHelp.png */,
@@ -708,6 +749,7 @@
 		15B650A01B2DF71500FAA2BA /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				151216F31B31486300E4322A /* stop.wav */,
 				15A3A3831B2EBA5C00983527 /* click.wav */,
 				15B0EB551B2E753B00F51BB1 /* jump.mp3 */,
 				15B0EB531B2E744200F51BB1 /* error.wav */,
@@ -999,6 +1041,7 @@
 				15B650591B2DD7C200FAA2BA /* airp34.png in Resources */,
 				15B650511B2DD7C200FAA2BA /* airp26.png in Resources */,
 				158D9B231B27D23B0009CEEE /* gamebackground1.png in Resources */,
+				155F13141B312226009A0569 /* resume2.png in Resources */,
 				15B0EB3D1B2E685300F51BB1 /* birdmonster16.png in Resources */,
 				15B0EB3B1B2E685300F51BB1 /* birdmonster14.png in Resources */,
 				157568591B2677E1008C3704 /* air32.png in Resources */,
@@ -1025,6 +1068,7 @@
 				15A3A3811B2EB91400983527 /* button.png in Resources */,
 				15B650541B2DD7C200FAA2BA /* airp29.png in Resources */,
 				157568611B2677E1008C3704 /* air40.png in Resources */,
+				15CABA951B308BCF003F9D39 /* Loading.png in Resources */,
 				15A17BD51B25F23F0073E563 /* air22.png in Resources */,
 				15A17BDF1B25F23F0073E563 /* air4.png in Resources */,
 				15A17BCD1B25F23F0073E563 /* air15.png in Resources */,
@@ -1035,6 +1079,7 @@
 				15A17BD61B25F23F0073E563 /* air23.png in Resources */,
 				15A17BC91B25F23F0073E563 /* air11.png in Resources */,
 				15B0EB431B2E685300F51BB1 /* birdmonster21.png in Resources */,
+				15B7BDE61B30FCAE00F56AA9 /* UIButtonPause.png in Resources */,
 				15B650651B2DD7C200FAA2BA /* airp46.png in Resources */,
 				15A3A3861B2EC64700983527 /* button1.png in Resources */,
 				15B0EB401B2E685300F51BB1 /* birdmonster19.png in Resources */,
@@ -1065,6 +1110,7 @@
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
 				157568491B267410008C3704 /* air45.png in Resources */,
 				15C2D51B1B2746A8004E45E1 /* gameArt.plist in Resources */,
+				151216FE1B3163EF00E4322A /* helpImg.png in Resources */,
 				15A17BD91B25F23F0073E563 /* air26.png in Resources */,
 				15B0EB521B2E742400F51BB1 /* bounce1.wav in Resources */,
 				15B0EB4E1B2E685300F51BB1 /* birdmonster9.png in Resources */,
@@ -1080,9 +1126,11 @@
 				1575684B1B267410008C3704 /* air47.png in Resources */,
 				15A17BD21B25F23F0073E563 /* air2.png in Resources */,
 				157568641B267C6F008C3704 /* background.png in Resources */,
+				151217001B31650300E4322A /* back.png in Resources */,
 				15A17BE11B25F23F0073E563 /* air6.png in Resources */,
 				15B0EB421B2E685300F51BB1 /* birdmonster20.png in Resources */,
 				15736F741B2CA09700717F10 /* monster.png in Resources */,
+				155F13161B3122D9009A0569 /* resume.png in Resources */,
 				15B650631B2DD7C200FAA2BA /* airp44.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				15A17BDA1B25F23F0073E563 /* air27.png in Resources */,
@@ -1096,8 +1144,10 @@
 				15B0EB451B2E685300F51BB1 /* birdmonster23.png in Resources */,
 				15B6505B1B2DD7C200FAA2BA /* airp36.png in Resources */,
 				15A17BDC1B25F23F0073E563 /* air29.png in Resources */,
+				15CABA971B308C22003F9D39 /* gamebackgrounds1.png in Resources */,
 				15B650A21B2DF72300FAA2BA /* crash.wav in Resources */,
 				15B6504F1B2DD7C200FAA2BA /* airp24.png in Resources */,
+				15CABA991B308E41003F9D39 /* pause.png in Resources */,
 				15A17BD31B25F23F0073E563 /* air20.png in Resources */,
 				15A17BDB1B25F23F0073E563 /* air28.png in Resources */,
 				15A17BD11B25F23F0073E563 /* air19.png in Resources */,
@@ -1108,18 +1158,24 @@
 				15B6504D1B2DD7C200FAA2BA /* airp22.png in Resources */,
 				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				157568601B2677E1008C3704 /* air39.png in Resources */,
+				151216F81B314FC700E4322A /* Btn_resume.png in Resources */,
 				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
+				151216F21B31463500E4322A /* LoadingPage1.png in Resources */,
 				15B6504B1B2DD7C200FAA2BA /* airp20.png in Resources */,
 				157568621B2677E1008C3704 /* air41.png in Resources */,
 				15DB44511B2D35CD0019261A /* monster2.png in Resources */,
 				1575684A1B267410008C3704 /* air46.png in Resources */,
 				15B0EB4A1B2E685300F51BB1 /* birdmonster5.png in Resources */,
 				1575685B1B2677E1008C3704 /* air34.png in Resources */,
+				151216F61B314B2B00E4322A /* UIResume.png in Resources */,
+				151216FC1B3155D700E4322A /* restartBtn.png in Resources */,
+				151216F41B31486300E4322A /* stop.wav in Resources */,
 				15A17BCE1B25F23F0073E563 /* air16.png in Resources */,
 				15B650641B2DD7C200FAA2BA /* airp45.png in Resources */,
 				15A17BD41B25F23F0073E563 /* air21.png in Resources */,
 				15B6505E1B2DD7C200FAA2BA /* airp39.png in Resources */,
 				157568481B267410008C3704 /* air44.png in Resources */,
+				151216F01B3145EC00E4322A /* LoadingPage.png in Resources */,
 				15B650601B2DD7C200FAA2BA /* airp41.png in Resources */,
 				15A17BD81B25F23F0073E563 /* air25.png in Resources */,
 			);

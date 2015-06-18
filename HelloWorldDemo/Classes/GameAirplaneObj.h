@@ -12,8 +12,11 @@
 #include <stdio.h>
 #include "cocos2d.h"
 
-
 using namespace cocos2d;
+
+const int ROTATE_INTERVAL = 1;
+
+const int ROTATE_DEGREE = 720;
 
 typedef enum{
     ACTION_STATE_IDLE,
@@ -36,7 +39,7 @@ public:
     void idle();
     void bounce();
     void speedup();
-    void explode();
+    void die();
 
 protected:
     static cocos2d::Animation* createAnimation();
@@ -48,6 +51,7 @@ private:
     
     Action* idleAction;
     Action* bounceAction;
+    Action* dieAction;
     ActionState currentStatus;
     
 };
