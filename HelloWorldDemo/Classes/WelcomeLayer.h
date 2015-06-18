@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "CCMenuItem.h"
 #include "GameScene.h"
+#include "HelpLayer.h"
 #include "time.h"
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
@@ -21,6 +22,7 @@ using namespace std;
 
 const int START_BUTTON_TAG = 100;
 
+
 class WelcomeLayer : public Layer{
 public:
     WelcomeLayer(void);
@@ -28,6 +30,7 @@ public:
     virtual bool init();
     virtual void onEnter();
     virtual void onExit();
+    Menu *backMenu;
     // implement the "static create()" method manually
     CREATE_FUNC(WelcomeLayer);
     
@@ -38,32 +41,11 @@ private:
     void menuStartCallback(Ref *sender);
     void menuHelpCallback(Ref *sender);
     void menuBackCallback(Ref *sender);
-    void initUI();
     
 private:
     Sprite *helpImg;
+    Layer* helpLayer;
     
-    Sprite *backButton;
-    Sprite *activeBackButton;
-    
-    Sprite *helpButton;
-    Sprite *activeHelpButton;
-    
-    Sprite *startButton;
-    Sprite *activeStartButton;
-    
-    Node *backNode;
-    Node *helpNode;
-    Node *startNode;
-    
-    
-
-    
-    //Menu *helpMenu;
-   // Menu *startMenu;
-   // Menu *backMenu;
-    Size visiableSize = Director::getInstance()->getVisibleSize();
-    Point origin = Director::getInstance()->getVisibleOrigin();
 };
 
 #endif /* defined(__HelloWorldDemo__WelcomeLayer__) */

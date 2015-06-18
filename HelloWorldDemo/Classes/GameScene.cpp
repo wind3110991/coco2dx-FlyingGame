@@ -101,7 +101,6 @@ void GameScene::onEnterTransitionDidFinish()
 {
     Node::onEnterTransitionDidFinish();
     // 场景加载完毕才滚动背景
-    //this->schedule(schedule_selector(GameScene::updateSpeed), 2.0f, kRepeatForever, 1.0f);
     this->scheduleUpdate();
 }
 

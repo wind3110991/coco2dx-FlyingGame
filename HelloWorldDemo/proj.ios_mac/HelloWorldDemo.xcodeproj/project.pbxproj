@@ -15,7 +15,8 @@
 		151216FC1B3155D700E4322A /* restartBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216FB1B3155D700E4322A /* restartBtn.png */; };
 		151216FE1B3163EF00E4322A /* helpImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216FD1B3163EF00E4322A /* helpImg.png */; };
 		151217001B31650300E4322A /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 151216FF1B31650300E4322A /* back.png */; };
-		155A95F11B2B3F5700668E68 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95EF1B2B3F5700668E68 /* MenuScene.cpp */; };
+		153FF5CD1B32AE9A00F3D1C5 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 153FF5CC1B32AE9A00F3D1C5 /* rocket.png */; };
+		153FF5D01B32C60300F3D1C5 /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 153FF5CE1B32C60300F3D1C5 /* HelpLayer.cpp */; };
 		155A95F41B2B406B00668E68 /* GameNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95F21B2B406B00668E68 /* GameNumber.cpp */; };
 		155A95FA1B2B442300668E68 /* GameStatusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95F81B2B442300668E68 /* GameStatusLayer.cpp */; };
 		155A95FD1B2B494A00668E68 /* GameOptionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 155A95FB1B2B494A00668E68 /* GameOptionLayer.cpp */; };
@@ -260,8 +261,9 @@
 		151216FB1B3155D700E4322A /* restartBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartBtn.png; sourceTree = "<group>"; };
 		151216FD1B3163EF00E4322A /* helpImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpImg.png; sourceTree = "<group>"; };
 		151216FF1B31650300E4322A /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		155A95EF1B2B3F5700668E68 /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
-		155A95F01B2B3F5700668E68 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		153FF5CC1B32AE9A00F3D1C5 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
+		153FF5CE1B32C60300F3D1C5 /* HelpLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpLayer.cpp; sourceTree = "<group>"; };
+		153FF5CF1B32C60300F3D1C5 /* HelpLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpLayer.h; sourceTree = "<group>"; };
 		155A95F21B2B406B00668E68 /* GameNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameNumber.cpp; sourceTree = "<group>"; };
 		155A95F31B2B406B00668E68 /* GameNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameNumber.h; sourceTree = "<group>"; };
 		155A95F81B2B442300668E68 /* GameStatusLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStatusLayer.cpp; sourceTree = "<group>"; };
@@ -532,6 +534,16 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		153FF5CB1B32AE6200F3D1C5 /* Monster */ = {
+			isa = PBXGroup;
+			children = (
+				153FF5CC1B32AE9A00F3D1C5 /* rocket.png */,
+				15B6509E1B2DEF9B00FAA2BA /* aircraft.png */,
+				15B0EB1C1B2E685300F51BB1 /* birdmonsters */,
+			);
+			name = Monster;
+			sourceTree = "<group>";
+		};
 		158D9B1F1B27D0FC0009CEEE /* gamebackground */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +737,8 @@
 				155A95FF1B2B4AC200668E68 /* GameLayer.h */,
 				15A3A37D1B2EB4A900983527 /* WelcomeLayer.cpp */,
 				15A3A37E1B2EB4A900983527 /* WelcomeLayer.h */,
+				153FF5CE1B32C60300F3D1C5 /* HelpLayer.cpp */,
+				153FF5CF1B32C60300F3D1C5 /* HelpLayer.h */,
 			);
 			name = GameLayer;
 			sourceTree = "<group>";
@@ -736,8 +750,6 @@
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 				15C2D5161B26C1B3004E45E1 /* GameScene.cpp */,
 				15C2D5171B26C1B3004E45E1 /* GameScene.h */,
-				155A95EF1B2B3F5700668E68 /* MenuScene.cpp */,
-				155A95F01B2B3F5700668E68 /* MenuScene.h */,
 				15A3A37A1B2EB3ED00983527 /* WelcomeScene.cpp */,
 				15A3A37B1B2EB3ED00983527 /* WelcomeScene.h */,
 				15BF55731B2F23CC007E0422 /* GameLoadingScene.cpp */,
@@ -821,10 +833,9 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				153FF5CB1B32AE6200F3D1C5 /* Monster */,
 				15A3A3821B2EB93B00983527 /* UI */,
-				15B0EB1C1B2E685300F51BB1 /* birdmonsters */,
 				15B650A01B2DF71500FAA2BA /* sound */,
-				15B6509E1B2DEF9B00FAA2BA /* aircraft.png */,
 				15B6502D1B2DD7C200FAA2BA /* airplanes */,
 				15DB44501B2D35CD0019261A /* monster2.png */,
 				155B9CC81B2CB16C00A90892 /* monster1.png */,
@@ -1130,6 +1141,7 @@
 				15A17BE11B25F23F0073E563 /* air6.png in Resources */,
 				15B0EB421B2E685300F51BB1 /* birdmonster20.png in Resources */,
 				15736F741B2CA09700717F10 /* monster.png in Resources */,
+				153FF5CD1B32AE9A00F3D1C5 /* rocket.png in Resources */,
 				155F13161B3122D9009A0569 /* resume.png in Resources */,
 				15B650631B2DD7C200FAA2BA /* airp44.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
@@ -1202,7 +1214,6 @@
 			files = (
 				15C2D5151B26BE77004E45E1 /* GameAirplaneObj.cpp in Sources */,
 				15B650991B2DE49200FAA2BA /* BirdMonsterObj.cpp in Sources */,
-				155A95F11B2B3F5700668E68 /* MenuScene.cpp in Sources */,
 				155A95FA1B2B442300668E68 /* GameStatusLayer.cpp in Sources */,
 				155A95FD1B2B494A00668E68 /* GameOptionLayer.cpp in Sources */,
 				15A3A37C1B2EB3ED00983527 /* WelcomeScene.cpp in Sources */,
@@ -1215,6 +1226,7 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				15C2D5181B26C1B3004E45E1 /* GameScene.cpp in Sources */,
+				153FF5D01B32C60300F3D1C5 /* HelpLayer.cpp in Sources */,
 				15C2D5121B26BDCA004E45E1 /* GameBackgroundLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
