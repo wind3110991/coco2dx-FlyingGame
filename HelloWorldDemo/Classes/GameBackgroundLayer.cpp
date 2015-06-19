@@ -88,6 +88,7 @@ void GameBackgroundLayer::scrollBackground()
     auto nextPos_m5 = this->birdmonster3->getPositionX() - this->speedX;
     auto nextPos_m6 = this->birdmonster4->getPositionX() - this->speedX;
     auto nextPos_m7 = this->rocketmonster1->getPositionX() - this->speedX;
+    auto nextPos_m8 = this->rocketmonster2->getPositionX() - this->speedX;
 //测试-------------------------------------------------------------------------------------------------------------
     
     
@@ -102,6 +103,8 @@ void GameBackgroundLayer::scrollBackground()
     this->birdmonster3->setPositionX(nextPos_m5);
     this->birdmonster4->setPositionX(nextPos_m6);
     this->rocketmonster1->setPositionX(nextPos_m7);
+    this->rocketmonster2->setPositionX(nextPos_m8);
+
 //测试-------------------------------------------------------------------------------------------------------------
     
     // 当一张地图移除屏幕边界的时候，重新放置到另一张地图的右边
@@ -140,6 +143,24 @@ void GameBackgroundLayer::scrollBackground()
         this->birdmonster3 = this->birdmonster4;
         this->birdmonster4 = temp1;
         
+        
+        this->rocketmonster1->setPositionX(this->background_2->getPositionX()/3 + this->background_2->getContentSize().width);
+        this->rocketmonster1->setPositionY(0);
+        
+        auto *temp2 = this->rocketmonster1;
+        this->rocketmonster1 = this->rocketmonster2;
+        this->rocketmonster2 = temp2;
+        
+        ccBezierConfig bezierCon;
+        bezierCon.controlPoint_1 = CCPointMake(visibleSize.width/3, 0);//控制点1
+        bezierCon.controlPoint_2 = CCPointMake(visibleSize.width/2, 10);//控制点2
+        bezierCon.endPosition = CCPointMake(visibleSize.width/10, visibleSize.height + 100);// 结束位置
+        //CCActionInterval * action = CCBezierTo::create(2, bezierCon);
+        CCActionInterval * action5= CCBezierBy::create(3, bezierCon);//支持反向
+        //CCActionInterval * action1 = action->reverse();
+        rocketmonster1->runAction(action5);
+        
+
 //测试-------------------------------------------------------------------------------------------------------------
     }
 }
@@ -148,12 +169,11 @@ void GameBackgroundLayer::birdMonsterFactory()
 {
     
     //testMonster3
-    
-    birdmonster1 = BirdMonsterObj::getInstance();
+    birdmonster1 = new BirdMonsterObj();
     birdmonster1->createMonster();
     birdmonster1->setPosition(visibleSize.width/2  - rand()%11*10,  rand()%11*50);
     PhysicsBody *body_3 = PhysicsBody::create();
-    body_3->addShape(PhysicsShapeCircle::create(BIRMONSTER_RADIUS-10));
+    body_3->addShape(PhysicsShapeCircle::create(BIRDMONSTER_RADIUS-10));
     body_3->setDynamic(true);
     body_3->setLinearDamping(0.0f);
     body_3->setGravityEnable(false);
@@ -163,12 +183,11 @@ void GameBackgroundLayer::birdMonsterFactory()
     birdmonster1->setPhysicsBody(body_3);
     addChild(birdmonster1);
     
-    
-    birdmonster2 = BirdMonsterObj::getInstance();
+    birdmonster2 = new BirdMonsterObj();
     birdmonster2->createMonster();
     birdmonster2->setPosition(visibleSize.width/2 + this->background_1->getContentSize().width, visibleSize.height - rand()%11*20);
     PhysicsBody *body_4 = PhysicsBody::create();
-    body_4->addShape(PhysicsShapeCircle::create(BIRMONSTER_RADIUS-10));
+    body_4->addShape(PhysicsShapeCircle::create(BIRDMONSTER_RADIUS-10));
     body_4->setDynamic(true);
     body_4->setLinearDamping(0.0f);
     body_4->setGravityEnable(false);
@@ -178,11 +197,11 @@ void GameBackgroundLayer::birdMonsterFactory()
     birdmonster2->setPhysicsBody(body_4);
     addChild(birdmonster2);
     
-    birdmonster3 = BirdMonsterObj::getInstance();
+    birdmonster3 = new BirdMonsterObj();
     birdmonster3->createMonster();
     birdmonster3->setPosition(visibleSize.width + rand()%11*5 , visibleSize.height - rand()%11*20);
     PhysicsBody *body_5 = PhysicsBody::create();
-    body_5->addShape(PhysicsShapeCircle::create(BIRMONSTER_RADIUS-10));
+    body_5->addShape(PhysicsShapeCircle::create(BIRDMONSTER_RADIUS-10));
     body_5->setDynamic(true);
     body_5->setLinearDamping(0.0f);
     body_5->setGravityEnable(false);
@@ -191,11 +210,11 @@ void GameBackgroundLayer::birdMonsterFactory()
     birdmonster3->setPhysicsBody(body_5);
     addChild(birdmonster3);
     
-    birdmonster4 = BirdMonsterObj::getInstance();
+    birdmonster4 = new BirdMonsterObj();
     birdmonster4->createMonster();
     birdmonster4->setPosition(visibleSize.width/4 + this->background_1->getContentSize().width + rand()%11*5 , rand()%11*22);
     PhysicsBody *body_6 = PhysicsBody::create();
-    body_6->addShape(PhysicsShapeCircle::create(BIRMONSTER_RADIUS-10));
+    body_6->addShape(PhysicsShapeCircle::create(BIRDMONSTER_RADIUS-10));
     body_6->setDynamic(true);
     body_6->setLinearDamping(0.0f);
     body_6->setGravityEnable(false);
@@ -207,11 +226,10 @@ void GameBackgroundLayer::birdMonsterFactory()
 
 void GameBackgroundLayer::aircraftMonsterFactory()
 {
-    this->testMonster1 = Sprite::create("aircraft.png");
-    this->testMonster1->setScale(0.8);
+    this->testMonster1 = new AircraftMonsterObj();
     this->testMonster1->setPosition(visibleSize.width/2, visibleSize.height/2 - rand()%11*31);
     PhysicsBody *body_1 = PhysicsBody::create();
-    body_1->addShape(PhysicsShapeCircle::create(BIRMONSTER_RADIUS));
+    body_1->addShape(PhysicsShapeCircle::create(BIRDMONSTER_RADIUS));
     body_1->setDynamic(true);
     body_1->setLinearDamping(0.0f);
     body_1->setGravityEnable(false);
@@ -221,11 +239,10 @@ void GameBackgroundLayer::aircraftMonsterFactory()
     testMonster1->setPhysicsBody(body_1);
     this->addChild(this->testMonster1);
     
-    this->testMonster2 = Sprite::create("aircraft.png");
-    this->testMonster2->setScale(0.8);
+    this->testMonster2 = new AircraftMonsterObj();
     this->testMonster2->setPosition(visibleSize.width + this->background_1->getContentSize().width,  + rand()%11*22);
     PhysicsBody *body_2 = PhysicsBody::create();
-    body_2->addShape(PhysicsShapeCircle::create(BIRMONSTER_RADIUS));
+    body_2->addShape(PhysicsShapeCircle::create(BIRDMONSTER_RADIUS));
     body_2->setDynamic(true);
     body_2->setLinearDamping(0.0f);
     body_2->setGravityEnable(false);
@@ -265,35 +282,55 @@ void GameBackgroundLayer::rocketMonsterFactory()
     this->addChild(rocketmonster1);
     
     ccBezierConfig bezierCon;
-        bezierCon.controlPoint_1 = CCPointMake(visibleSize.width/4, 0);//控制点1
-        bezierCon.controlPoint_2 = CCPointMake(visibleSize.width/4, 10);//控制点2
-        bezierCon.endPosition = CCPointMake(visibleSize.width/3, visibleSize.height);// 结束位置
-    // CCBezierTo
-    //    创建一个贝塞尔曲线运动的动作
-    //    参数1：贝塞尔曲线运动的时间
-    //    参数2 ：ccBezierConfig结构体
+        bezierCon.controlPoint_1 = CCPointMake(visibleSize.width/3, 0);//控制点1
+        bezierCon.controlPoint_2 = CCPointMake(visibleSize.width/2, 10);//控制点2
+        bezierCon.endPosition = CCPointMake(visibleSize.width/10, visibleSize.height + 100);// 结束位置
         //CCActionInterval * action = CCBezierTo::create(2, bezierCon);
         CCActionInterval * action1= CCBezierBy::create(3, bezierCon);//支持反向
         //CCActionInterval * action1 = action->reverse();
         rocketmonster1->runAction(action1);
 
+    rocketmonster2 = RocketMonsterObj::getInstance();
+    rocketmonster2->createMonster();
+    //this->rocketmonster1 = Sprite::create("rocket.png");
+    this->rocketmonster2->setScale(0.8);
+    this->rocketmonster2->setPosition(visibleSize.width/5 + this->background_1->getContentSize().width, 0);
+    PhysicsBody *body_2 = PhysicsBody::create();
+    body_2->addShape(PhysicsShapeCircle::create(BIRMONSTER_RADIUS));
+    body_2->setDynamic(true);
+    body_2->setLinearDamping(0.0f);
+    body_2->setGravityEnable(false);
+    body_2->setCategoryBitmask(0x0000000C);
+    body_2->setContactTestBitmask(0x00000002);
+    body_2->setMass(2000);
+    rocketmonster1->setPhysicsBody(body_2);
+    this->addChild(rocketmonster2);
+    
+    ccBezierConfig bezierCon1;
+    bezierCon1.controlPoint_1 = CCPointMake(visibleSize.width/3, 0);//控制点1
+    bezierCon1.controlPoint_2 = CCPointMake(visibleSize.width/2, 10);//控制点2
+    bezierCon1.endPosition = CCPointMake(visibleSize.width/10, visibleSize.height + 100);// 结束位置
+    //CCActionInterval * action = CCBezierTo::create(2, bezierCon);
+    CCActionInterval * action2= CCBezierBy::create(3, bezierCon);//支持反向
+    //CCActionInterval * action1 = action->reverse();
+    rocketmonster1->runAction(action2);
 }
 
-Animation* GameBackgroundLayer::createAnimation()
-{
-    auto animation = Animation::create();
-    
-    for( int i=1;i<26;i++)
-    {
-        char szName[100] = {0};
-        sprintf(szName, "birdmonster%d.png", i);
-        animation->addSpriteFrameWithFile(szName);
-    }
-    
-    animation->setDelayPerUnit(2.8f / 59.0f);
-    animation->setRestoreOriginalFrame(true);
-    return animation;
-}
+//Animation* GameBackgroundLayer::createAnimation()
+//{
+//    auto animation = Animation::create();
+//    
+//    for( int i=1;i<26;i++)
+//    {
+//        char szName[100] = {0};
+//        sprintf(szName, "birdmonster%d.png", i);
+//        animation->addSpriteFrameWithFile(szName);
+//    }
+//    
+//    animation->setDelayPerUnit(2.8f / 59.0f);
+//    animation->setRestoreOriginalFrame(true);
+//    return animation;
+//}
 
 
 void GameBackgroundLayer::scrollSpeedUp()

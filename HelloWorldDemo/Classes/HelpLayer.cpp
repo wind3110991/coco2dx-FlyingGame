@@ -12,15 +12,24 @@ bool HelpLayer::init(){
     if(!Layer::init()){
         return false;
     }
-    Size visiableSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
     
-    helpImg = Sprite::create("helpImg.png");
+    helpImg = Sprite::create("helpImg1.png");
     helpImg->setAnchorPoint(Vec2(0, 0));
     helpImg->setPosition(0, 0);
     this->addChild(this->helpImg);
     
     return true;
+}
+
+void HelpLayer::onEnter()
+{
+    Node::onEnter();
+}
+
+void HelpLayer::onExit()
+{
+    Node::onExit();
 }
 
 HelpLayer::HelpLayer(void)
@@ -29,4 +38,6 @@ HelpLayer::HelpLayer(void)
 
 HelpLayer::~HelpLayer(void)
 {}
+
+
 

@@ -1,37 +1,34 @@
 //
-//  RocketMonsterObj.h
+//  AircraftMonsterObj.h
 //  HelloWorldDemo
 //
 //  Created by 骏宇 on 15/6/18.
 //
 //
 
-#ifndef __HelloWorldDemo__RocketMonsterObj__
-#define __HelloWorldDemo__RocketMonsterObj__
+#ifndef __HelloWorldDemo__AircraftMonsterObj__
+#define __HelloWorldDemo__AircraftMonsterObj__
 
 #include <stdio.h>
-
 #include "GameMonsterObj.h"
 #include "cocos2d.h"
 
 using namespace std;
 using namespace cocos2d;
 
-const int ROCKETMONSTER_RADIUS = 40;
+const int AIRCRAFTMONSTER_RADIUS = 40;
 
-//继承抽象类monster衍生出火箭敌人类
-class RocketMonsterObj:public GameMonsterObj
+//继承抽象类monster衍生出飞行器敌人类
+class AircraftMonsterObj:public GameMonsterObj
 {
 public:
-    RocketMonsterObj(void);
-    virtual ~RocketMonsterObj(void);
+    AircraftMonsterObj(void);
+    virtual ~AircraftMonsterObj(void);
     virtual void onEnter();
     virtual void onExit();
     
-    static RocketMonsterObj* getInstance();
+    //    static BirdMonsterObj* getInstance();
     bool createMonster()const;
-protected:
-    //static cocos2d::Animation* createAnimation();
 private:
     //static BirdMonsterObj* shareBireMonster;
     Sprite* m_sprite;
@@ -39,4 +36,5 @@ private:
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
 };
-#endif /* defined(__HelloWorldDemo__RocketMonsterObj__) */
+
+#endif /* defined(__HelloWorldDemo__AircraftMonsterObj__) */

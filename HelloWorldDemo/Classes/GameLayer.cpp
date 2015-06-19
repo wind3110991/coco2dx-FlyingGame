@@ -27,6 +27,7 @@ bool GameLayer::init()
     
     gameStatus = GAME_STATUS_READY;
     this->score = 0;//重置分数
+    this->bestScore = CCUserDefault::sharedUserDefault()->getIntegerForKey("bestScore", 0);
     
     this->label1 = Label::createWithTTF("Your Score: ","fonts/Marker Felt.ttf", 24);
     this->label1->setPosition(Vec2(origin.x + visibleSize.width/10,origin.y + visibleSize.height - label1->getContentSize().height));
@@ -40,6 +41,20 @@ bool GameLayer::init()
     this->scoreLabel->setVisible(true); //计分开始
     scoreLabel->setPosition(Vec2(origin.x + visibleSize.width/6 + 20 ,origin.y + visibleSize.height - label1->getContentSize().height));
     this->addChild(scoreLabel);
+    
+    
+    this->label3 = Label::createWithTTF("Best Score: ","fonts/Marker Felt.ttf", 24);
+    this->label3->setPosition(Vec2(origin.x + visibleSize.width/10,origin.y + visibleSize.height - label1->getContentSize().height - 30));
+    this->addChild(label3);
+    
+    ostringstream  ostr1;
+    ostr1 << this->bestScore;
+    string str1(ostr1.str());
+    
+    this->highScoreLabel = Label::create(str1,"fonts/Marker Felt.ttf", 24);
+    this->highScoreLabel->setVisible(true);
+    this->highScoreLabel->setPosition(Vec2(origin.x + visibleSize.width/6 + 20 ,origin.y + visibleSize.height - label1->getContentSize().height - 30));
+    this->addChild(highScoreLabel);
     
     //加载暂停按钮
     this->initPauseMenu();
@@ -182,11 +197,17 @@ void GameLayer::updateScore()
     this->scoreLabel->setVisible(true);
 }
 
-//void GameLayer::updateSpeed()
-//{
-//    GameBackgroundLayer::scrollSpeedUp();
-//    //
-//}
+bool GameLayer::isNewHighScore()
+{
+    if(gameStatus == GAME_STATUS_OVER&&this->score > bestScore){
+        bestScore = this->score;
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("bestScore", bestScore);
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 void GameLayer::update(float delta)
 {
@@ -211,11 +232,19 @@ void GameLayer::update(float delta)
 
 void GameLayer::insertGameOver()
 {
-    this->label2 = Label::createWithTTF("Game Over!","fonts/Marker Felt.ttf", 40);
-    label2->setPosition(Vec2((origin.x + visibleSize.width)/2,origin.y + visibleSize.height/2 + 80));
-    this->addChild(label2);
-    unscheduleUpdate();
+    if(isNewHighScore()){
+        this->label2 = Label::createWithTTF("High Score!","fonts/Marker Felt.ttf", 40);
+        label2->setPosition(Vec2((origin.x + visibleSize.width)/2,origin.y + visibleSize.height/2 + 80));
+        this->addChild(label2);
+    }
+    else{
+        this->label2 = Label::createWithTTF("Game Over!","fonts/Marker Felt.ttf", 40);
+        label2->setPosition(Vec2((origin.x + visibleSize.width)/2,origin.y + visibleSize.height/2 + 80));
+        this->addChild(label2);
+    }
+        unscheduleUpdate();
 }
+
 
 void GameLayer::menuPauseCallback(Ref* pSender)
 {

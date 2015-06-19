@@ -26,7 +26,7 @@ bool GameScene::init()
     {
         return false;
     }
-    //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+   // this->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     this->getPhysicsWorld()->setGravity(Vect(0, -900));
 
     //为场景创建物理边界

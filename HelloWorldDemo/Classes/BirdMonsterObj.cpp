@@ -27,20 +27,13 @@ void BirdMonsterObj::onEnter()
     m_sprite->runAction(CCRepeatForever::create(CCAnimate::create(animation)));
     addChild(m_sprite);
 }
+
 void BirdMonsterObj::onExit()
 {
     Node::onExit();
     removeChild(this->m_sprite);
 }
 
-//BirdMonsterObj* BirdMonsterObj::shareBireMonster = nullptr;
-
-BirdMonsterObj* BirdMonsterObj::getInstance()
-{
-
-    BirdMonsterObj* bireMonster = new BirdMonsterObj();
-    return bireMonster;
-}
 
 bool BirdMonsterObj::createMonster()const
 {

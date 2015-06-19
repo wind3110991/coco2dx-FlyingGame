@@ -13,10 +13,11 @@
 #include "cocos2d.h"
 #include "BirdMonsterObj.h"
 #include "RocketMonsterObj.h"
+#include "AircraftMonsterObj.h"
 
 using namespace cocos2d;
 
-const int BIRMONSTER_RADIUS = 50;
+const int BIRDMONSTER_RADIUS = 50;
 
 // 游戏背景层
 class GameBackgroundLayer : public Layer
@@ -34,7 +35,7 @@ public:
     CREATE_FUNC(GameBackgroundLayer);
     
 protected:
-    static cocos2d::Animation* createAnimation();
+    //static cocos2d::Animation* createAnimation();
 private:
     // 初始化背景地图
     void initBackground();
@@ -47,8 +48,8 @@ private:
     Sprite *background_1;
     Sprite *background_2;
     
-    Sprite *testMonster1;
-    Sprite *testMonster2;
+    AircraftMonsterObj* testMonster1;
+    AircraftMonsterObj* testMonster2;
     
     BirdMonsterObj* birdmonster1;
     BirdMonsterObj* birdmonster2;
@@ -56,6 +57,7 @@ private:
     BirdMonsterObj* birdmonster4;
     
     RocketMonsterObj* rocketmonster1;
+    RocketMonsterObj* rocketmonster2;
     // 沿X轴滚动速度
     Action* idleAction1;
     Action* idleAction2;

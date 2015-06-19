@@ -34,19 +34,7 @@ typedef enum _game_status {
 
 class StatusDelegate {
 public:
-    /**
-     * When the game start, this method will be called
-     */
-    //virtual void onGameStart(void) = 0;
-    
-    /**
-     * During paying, after the score changed, this method will be called
-     */
-    //virtual void onGamePlaying(int score) = 0;
-    
-    /**
-     * When game is over, this method will be called
-     */
+
     virtual void onGameEnd(int curSocre, int bestScore) = 0;
 };
 
@@ -63,14 +51,14 @@ public:
     CC_SYNTHESIZE(StatusDelegate*, delegator, Delegator);
     void onTouch();
     void setover();
-    /**
-     * This layer need physical engine work
-     */
+
     void setPhyWorld(PhysicsWorld* world){this->m_world = world;}
     
     void update(float delta) override;
     
     void updateScore();
+    
+    bool isNewHighScore();
     
     void onEnter();
     
@@ -102,15 +90,17 @@ private:
     Sprite* pauseBtnActive;
     
     Label *scoreLabel;
+    Label *highScoreLabel;
+    
     
     Label *label1;
     Label *label2;
+    Label *label3;
     
     Node *resumeNode;
     Node *pauseNode;
     
     int score = 0;
-    
     int bestScore = 0;
     
     GameAirplaneObj *airplane;

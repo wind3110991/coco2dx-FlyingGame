@@ -35,6 +35,7 @@ void LoadingScene::loadingCallBack(){
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("bounce.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("error.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("stop.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("click.wav");
     // After load all the things, change the scene to new one
     //auto scene = HelloWorld::createScene();
     auto scene = WelcomeScene::create();

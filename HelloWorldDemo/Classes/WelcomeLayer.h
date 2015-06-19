@@ -13,6 +13,7 @@
 #include "CCMenuItem.h"
 #include "GameScene.h"
 #include "HelpLayer.h"
+#include "AboutLayer.h"
 #include "time.h"
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
@@ -31,6 +32,7 @@ public:
     virtual void onEnter();
     virtual void onExit();
     Menu *backMenu;
+    Menu *backAboutMenu;
     // implement the "static create()" method manually
     CREATE_FUNC(WelcomeLayer);
     
@@ -41,11 +43,13 @@ private:
     void menuStartCallback(Ref *sender);
     void menuHelpCallback(Ref *sender);
     void menuBackCallback(Ref *sender);
+    void menuAboutCallback(Ref *sender);
+    void menuBackAboutCallback(Ref *sender);
     
 private:
-    Sprite *helpImg;
     Layer* helpLayer;
-    
+    Layer* aboutLayer;
+
 };
 
 #endif /* defined(__HelloWorldDemo__WelcomeLayer__) */

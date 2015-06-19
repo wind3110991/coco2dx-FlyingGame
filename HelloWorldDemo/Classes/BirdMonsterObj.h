@@ -16,6 +16,8 @@
 using namespace std;
 using namespace cocos2d;
 
+const int BIRMONSTER_RADIUS = 40;
+
 //继承抽象类monster衍生出猫头鹰敌人类
 class BirdMonsterObj:public GameMonsterObj
 {
@@ -25,7 +27,7 @@ public:
     virtual void onEnter();
     virtual void onExit();
     
-    static BirdMonsterObj* getInstance();
+//    static BirdMonsterObj* getInstance();
     bool createMonster()const;
 protected:
     static cocos2d::Animation* createAnimation();
